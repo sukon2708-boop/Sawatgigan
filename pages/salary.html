@@ -1,12 +1,22 @@
+```html
 <!doctype html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>การจ่ายค่าจ้าง</title>
+
+  <title>การจ่ายค่าจ้าง | CP ALL</title>
+
   <link rel="stylesheet" href="../css/style.css">
 
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
+    .salary-main {
+      min-width: 0;
+      width: 100%;
+    }
+
     .salary-highlight {
       color: #d71920;
       font-weight: 700;
@@ -27,7 +37,7 @@
       line-height: 1.7;
     }
 
-    /* ส่วนบน: การ์ดอยู่ซ้าย รูป salary อยู่ขวา */
+    /* ส่วนบน: การ์ดซ้าย รูปขวา */
     .salary-top {
       grid-column: 1 / -1;
       display: grid;
@@ -35,6 +45,7 @@
       gap: 16px;
       align-items: center;
       width: 100%;
+      min-width: 0;
     }
 
     .salary-flow {
@@ -101,7 +112,7 @@
       object-fit: contain;
     }
 
-    /* รูป boos ด้านล่าง */
+    /* รูปด้านล่าง */
     .salary-bottom-image {
       width: 100%;
       height: 230px;
@@ -127,6 +138,13 @@
       margin-top: 12px;
     }
 
+    /* หมายเหตุ */
+    .salary-note {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Tablet */
     @media (max-width: 900px) {
       .salary-top {
         grid-template-columns: 1fr;
@@ -147,6 +165,7 @@
       }
     }
 
+    /* Mobile */
     @media (max-width: 600px) {
       .salary-flow {
         grid-template-columns: 1fr;
@@ -154,6 +173,14 @@
 
       .salary-step {
         padding: 20px;
+      }
+
+      .salary-step h3 {
+        font-size: 16px;
+      }
+
+      .salary-step p {
+        font-size: 13px;
       }
 
       .salary-top-image img {
@@ -169,102 +196,217 @@
 </head>
 
 <body>
-<div class="page content-page">
 
+<div class="page menu-page">
+
+  <div class="menu-app">
+
+    <!-- HEADER -->
     <header class="menu-header">
-      <img src="../assets/logo.png" class="menu-logo" alt="CP ALL">
+
+      <img
+        src="../assets/logo.png"
+        class="menu-logo"
+        alt=""
+        onerror="this.style.display='none'"
+      >
 
       <div class="employee-profile">
         <span class="profile-icon">●</span>
         <span>พนักงานใหม่</span>
         <span>⌄</span>
       </div>
+
     </header>
 
-  <main class="container">
+    <div class="menu-layout">
 
-    <div class="content-title fade-up">
-      <h1>การจ่ายค่าจ้าง</h1>
-      <p>รายละเอียดรอบคำนวณและกำหนดการจ่ายเงินเดือน</p>
+      <!-- SIDEBAR -->
+      <aside class="menu-sidebar">
+
+        <a href="../menu.html" class="sidebar-item">
+          <span>⌂</span>
+          หน้าหลัก
+        </a>
+
+        <a href="welfare.html" class="sidebar-item">
+          <span>♡</span>
+          สวัสดิการ
+        </a>
+
+        <a href="dress.html" class="sidebar-item">
+          <span>♧</span>
+          การแต่งกาย
+        </a>
+
+        <a href="salary.html" class="sidebar-item active">
+          <span>◷</span>
+          การจ่ายค่าจ้าง
+        </a>
+
+        <a href="working-time.html" class="sidebar-item">
+          <span>◴</span>
+          วันเวลาทำงาน
+        </a>
+
+        <a href="leave.html" class="sidebar-item">
+          <span>♧</span>
+          วันลา
+        </a>
+
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="menu-main salary-main">
+
+        <!-- TITLE -->
+        <div class="content-title fade-up">
+          <h1>การจ่ายค่าจ้าง</h1>
+          <p>รายละเอียดรอบคำนวณและกำหนดการจ่ายเงินเดือน</p>
+        </div>
+
+        <div class="content-layout">
+
+          <!-- การ์ดและรูปภาพด้านบน -->
+          <div class="salary-top">
+
+            <div class="salary-flow">
+
+              <!-- STEP 1 -->
+              <div class="salary-step fade-up">
+
+                <div class="number">1</div>
+
+                <h3>อัตราค่าจ้าง</h3>
+
+                <p>
+                  การจ่ายค่าจ้างเป็นไปตามวุฒิการศึกษา
+                </p>
+
+              </div>
+
+              <!-- STEP 2 -->
+              <div class="salary-step fade-up delay-1">
+
+                <div class="number">2</div>
+
+                <h3>วันที่คำนวณเงินเดือนและรายได้</h3>
+
+                <p>
+                  ตั้งแต่วันที่
+                  <span class="salary-highlight">
+                    21 ของเดือนที่ผ่านมา
+                  </span>
+                  ถึงวันที่
+                  <span class="salary-highlight">
+                    20 ของเดือนปัจจุบัน
+                  </span>
+                </p>
+
+              </div>
+
+              <!-- STEP 3 -->
+              <div class="salary-step fade-up delay-2">
+
+                <div class="number">3</div>
+
+                <h3>วันจ่ายเงินเดือน</h3>
+
+                <p>
+                  จ่ายทุกวันที่
+                  <span class="salary-highlight">30</span>
+                  ของเดือน
+                </p>
+
+              </div>
+
+            </div>
+
+            <!-- รูป salary -->
+            <div class="salary-top-image fade-up">
+
+              <img
+                src="../assets/salary.png"
+                alt=""
+                onerror="this.style.display='none'"
+              >
+
+            </div>
+
+          </div>
+
+          <!-- กรณีวันจ่ายตรงกับวันหยุด -->
+          <div class="card full fade-up delay-3">
+
+            <h2>กรณีวันจ่ายตรงกับวันหยุด</h2>
+
+            <p>
+              หากวันจ่ายเงินเดือนตรงกับวันเสาร์ วันอาทิตย์
+              หรือวันหยุดนักขัตฤกษ์ บริษัทจะเลื่อนการจ่ายเงินเดือนให้เร็วขึ้น
+              เพื่อให้ตรงกับวันทำการ
+            </p>
+
+            <div class="salary-example">
+
+              <strong>ตัวอย่าง</strong>
+
+              <p>
+                หากวันที่ 30 ตรงกับวันเสาร์
+                เงินเดือนจะเลื่อนมาจ่ายในวันศุกร์ที่
+                <span class="salary-highlight">29</span>
+              </p>
+
+            </div>
+
+          </div>
+
+          <!-- รูปภาพด้านล่าง -->
+          <div class="placeholder full fade-up delay-4 salary-bottom-image">
+
+            <img
+              src="../assets/boos.png"
+              alt=""
+              onerror="this.style.display='none'"
+            >
+
+          </div>
+
+          <!-- หมายเหตุ -->
+          <div class="note full fade-up delay-4 salary-note">
+
+            <strong>หมายเหตุ</strong>
+
+            <p>
+              กรณีมีข้อสงสัย ติดต่อฝ่ายบุคคลเท่านั้น
+              <span class="salary-contact">091-004-8991</span>
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="menu-note">
+
+          <div class="note-icon">♥</div>
+
+          <div>
+            <strong>CP ALL</strong>
+            <p>เรียนรู้และเติบโตไปด้วยกันที่ CP ALL</p>
+          </div>
+
+        </div>
+
+      </main>
+
     </div>
 
-    <div class="content-layout">
+  </div>
 
-      <!-- การ์ดอยู่ซ้าย รูป salary อยู่ขวา -->
-      <div class="salary-top">
-
-        <div class="salary-flow">
-
-          <div class="salary-step fade-up">
-            <div class="number">1</div>
-            <h3>อัตราค่าจ้าง</h3>
-            <p>การจ่ายค่าจ้างเป็นไปตามวุฒิการศึกษา</p>
-          </div>
-
-          <div class="salary-step fade-up delay-1">
-            <div class="number">2</div>
-            <h3>วันที่คำนวณเงินเดือนและรายได้</h3>
-            <p>
-              ตั้งแต่วันที่
-              <span class="salary-highlight">21 ของเดือนที่ผ่านมา</span>
-              ถึงวันที่
-              <span class="salary-highlight">20 ของเดือนปัจจุบัน</span>
-            </p>
-          </div>
-
-          <div class="salary-step fade-up delay-2">
-            <div class="number">3</div>
-            <h3>วันจ่ายเงินเดือน</h3>
-            <p>
-              จ่ายทุกวันที่
-              <span class="salary-highlight">30</span>
-              ของเดือน
-            </p>
-          </div>
-
-        </div>
-
-        <div class="salary-top-image fade-up">
-          <img src="../assets/salary.png" alt="การจ่ายค่าจ้าง">
-        </div>
-
-      </div>
-
-      <div class="card full fade-up delay-3">
-        <h2>กรณีวันจ่ายตรงกับวันหยุด</h2>
-        <p>
-          หากวันจ่ายเงินเดือนตรงกับวันเสาร์ วันอาทิตย์
-          หรือวันหยุดนักขัตฤกษ์ บริษัทจะเลื่อนการจ่ายเงินเดือนให้เร็วขึ้น
-          เพื่อให้ตรงกับวันทำการ
-        </p>
-
-        <div class="salary-example">
-          <strong>ตัวอย่าง</strong>
-          <p>
-            หากวันที่ 30 ตรงกับวันเสาร์
-            เงินเดือนจะเลื่อนมาจ่ายในวันศุกร์ที่
-            <span class="salary-highlight">29</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- รูป boos ใช้กรอบ placeholder เดิม -->
-      <div class="placeholder full fade-up delay-4 salary-bottom-image">
-        <img src="../assets/boos.png" alt="ภาพประกอบ">
-      </div>
-
-      <div class="note full fade-up delay-4 salary-note">
-        <strong>หมายเหตุ</strong>
-        <p>
-          กรณีมีข้อสงสัย ติดต่อฝ่ายบุคคลเท่านั้น
-          <span class="salary-contact">091-004-8991</span>
-        </p>
-      </div>
-
-    </div>
-  </main>
 </div>
 
 <script src="../js/main.js"></script>
+
 </body>
 </html>
+```
