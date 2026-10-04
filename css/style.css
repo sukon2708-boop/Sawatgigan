@@ -1381,3 +1381,236 @@ object-fit: cover;
   object-position: center bottom;
   display: block;
 }
+/* =========================
+   LANDING RIGHT
+========================= */
+
+.landing-right {
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+
+/* =========================
+   QR CARD
+========================= */
+
+.qr-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 22px;
+
+  background: #ffffff;
+
+  border-radius: 20px 20px 0 0;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08);
+
+  position: relative;
+  z-index: 2;
+}
+
+.qr-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.qr-content strong {
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+}
+
+.qr-content span {
+  font-size: 11px;
+  color: #777;
+}
+
+.qr-card img {
+  width: 80px;
+  height: 80px;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+}
+
+
+/* =========================
+   PIC1 FRAME
+========================= */
+
+.pic1-frame {
+  width: 100%;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #fcebed;
+
+  border-radius: 0 0 28px 28px;
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.12);
+
+  margin-top: 0;
+}
+
+
+/* รูปพนักงาน */
+
+.pic1-frame .main-character {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-height: 500px;
+
+  object-fit: cover;
+
+  object-position: center bottom;
+}
+
+
+/* ข้อความบนรูป */
+
+.pic1-text {
+  position: absolute;
+
+  top: 22px;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  font-family: "Prompt", sans-serif;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  color: #d71920;
+
+  z-index: 2;
+}
+
+.pic1-text span {
+  font-size: 15px;
+  color: #333;
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 901px) {
+
+  .landing-content {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      390px;
+
+    align-items: center;
+
+    gap: 70px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 40px 50px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  .landing-content {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 25px 20px;
+  }
+
+  .welcome-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .landing-right {
+    width: min(100%, 390px);
+  }
+
+  .qr-card {
+    padding: 16px;
+  }
+
+  .qr-content strong {
+    font-size: 15px;
+  }
+
+  .qr-content span {
+    font-size: 10px;
+  }
+
+  .qr-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .pic1-frame {
+    border-radius: 0 0 24px 24px;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .landing-content {
+    padding: 20px 15px;
+  }
+
+  .landing-right {
+    width: 100%;
+  }
+
+  .pic1-frame .main-character {
+    max-height: 430px;
+  }
+
+  .pic1-text {
+    top: 15px;
+    font-size: 14px;
+  }
+
+}
