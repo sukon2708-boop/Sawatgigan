@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="th">
 
@@ -8,611 +9,371 @@
   <title>วันลา | CP ALL</title>
 
   <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* =========================================
+       หน้าวันลา
+       ใช้ธีมเดียวกับหน้าอื่น ๆ
+       แต่ไม่มี Banner
+    ========================================= */
 
-    /* =====================================================
-       LEAVE PAGE
-       ใช้โครงสร้างเดียวกับหน้าอื่น
-       ไม่มี Banner
-       ไม่มี Background Image
-    ===================================================== */
-
-    .leave-page .menu-main {
-      position: relative !important;
-
-      min-width: 0 !important;
-
-      background: #ffffff !important;
-      background-image: none !important;
-
-      overflow: visible !important;
-    }
-
-
-    /* ปิด Background / Overlay จาก CSS หลัก */
-
-    .leave-page .menu-main::before,
-    .leave-page .menu-main::after {
-      display: none !important;
-
-      content: none !important;
-
-      background: none !important;
-      background-image: none !important;
-    }
-
-
-    /* =====================================================
-       HEADER
-       บังคับให้ใช้เหมือนหน้าอื่น
-    ===================================================== */
-
-    .leave-page .menu-header {
-      position: relative;
-      z-index: 10;
-    }
-
-
-    /* =====================================================
-       CONTENT
-    ===================================================== */
-
-    .leave-content-area {
-      width: 100%;
+    .leave-main {
       min-width: 0;
+    }
 
-      padding: 28px;
-
+    .leave-content {
+      width: 100%;
       box-sizing: border-box;
-
-      background: #ffffff;
     }
 
-
-    /* =====================================================
-       PAGE TITLE
-    ===================================================== */
-
-    .leave-title {
-      margin: 0 0 26px;
-    }
-
-
-    .leave-eyebrow {
-      margin: 0 0 7px;
-
-      color: #ef3340;
-
-      font-size: 12px;
-      font-weight: 700;
-
-      letter-spacing: .2px;
-    }
-
-
-    .leave-title h1 {
-      margin: 0 0 7px;
-
+    /* หัวข้อหน้า */
+    .leave-page-title {
+      margin: 0 0 20px;
       color: #263746;
-
-      font-size: 28px;
-      line-height: 1.3;
-
+      font-size: 22px;
       font-weight: 700;
     }
 
-
-    .leave-title p {
-      margin: 0;
-
-      color: #687386;
-
-      font-size: 14px;
+    .leave-page-desc {
+      margin: -10px 0 20px;
+      color: #82909b;
+      font-size: 13px;
       line-height: 1.7;
     }
 
-
-    /* =====================================================
-       LEAVE LIST
-    ===================================================== */
-
-    .leave-list {
-      display: flex;
-      flex-direction: column;
-
-      gap: 16px;
-
-      width: 100%;
-    }
-
-
-    /* =====================================================
-       LEAVE CARD
-    ===================================================== */
-
-    .leave-item {
-      display: grid;
-
-      grid-template-columns: 110px minmax(0, 1fr);
-
-      align-items: center;
-
-      gap: 20px;
-
-      width: 100%;
-
+    /* กล่องแต่ละประเภทการลา */
+    .leave-section {
+      margin-bottom: 18px;
       padding: 20px;
+      border: 1px solid #f1e5e5;
+      border-radius: 17px;
+      background: #fff;
+      box-shadow: 0 4px 13px rgba(30, 40, 50, .035);
 
-      box-sizing: border-box;
-
-      background: #ffffff;
-
-      border: 1px solid #f1dddd;
-
-      border-radius: 22px;
-
-      box-shadow:
-        0 6px 20px rgba(180, 0, 20, .055);
-
-      animation: leaveFadeUp .55s both;
-
-      transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+      animation: leaveFadeUp .5s ease both;
+      transition: transform .25s ease, box-shadow .25s ease;
     }
 
-
-    .leave-item:hover {
-      transform: translateY(-3px);
-
-      box-shadow:
-        0 10px 26px rgba(180, 0, 20, .10);
+    .leave-section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px rgba(30, 40, 50, .06);
     }
 
-
-    /* =====================================================
-       ICON
-    ===================================================== */
-
-    .leave-icon {
-      width: 110px;
-      height: 110px;
-
+    /* หัวข้อของแต่ละกล่อง */
+    .leave-heading {
       display: flex;
-
       align-items: center;
-      justify-content: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
 
+    .leave-number {
+      width: 38px;
+      height: 38px;
       flex-shrink: 0;
 
-      box-sizing: border-box;
-
-      overflow: hidden;
-
-      border: 2px dashed #efa5a5;
+      display: grid;
+      place-items: center;
 
       border-radius: 50%;
+      background: #fff0f0;
+      color: #ed3945;
 
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .leave-heading h2 {
+      margin: 0;
+      color: #263746;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    /* Layout ภายใน */
+    .leave-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* สลับรูปไปซ้าย */
+    .leave-feature.image-left {
+      grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .leave-feature.image-left .leave-picture {
+      order: -1;
+    }
+
+    /* รายการข้อมูล */
+    .leave-info {
+      min-width: 0;
+    }
+
+    .leave-info ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .leave-info li {
+      margin-bottom: 7px;
+      color: #667580;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .leave-info li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* รูปภาพ */
+    .leave-picture {
+      width: 100%;
+      min-height: 150px;
+
+      padding: 10px;
+
+      display: grid;
+      place-items: center;
+
+      box-sizing: border-box;
+      overflow: hidden;
+
+      border: 1px solid #f1e5e5;
+      border-radius: 14px;
       background: #fffafa;
     }
 
-
-    .leave-icon img {
+    .leave-picture img {
       display: block;
-
-      width: 76%;
-      height: 76%;
-
+      width: 100%;
+      height: 145px;
       object-fit: contain;
 
       transition: transform .3s ease;
     }
 
-
-    .leave-item:hover .leave-icon img {
-      transform: scale(1.07);
+    .leave-section:hover .leave-picture img {
+      transform: scale(1.04);
     }
 
-
-    /* =====================================================
-       TEXT
-    ===================================================== */
-
-    .leave-text {
-      min-width: 0;
-    }
-
-
-    .leave-text h3 {
-      margin: 0 0 9px;
-
-      color: #263746;
-
-      font-size: 19px;
-
+    /* ข้อความเน้นสีแดง */
+    .leave-red {
+      margin: 0 0 10px;
+      color: #e52e3b;
+      font-size: 13px;
       font-weight: 700;
     }
 
+    /* กล่องแจ้งเตือน */
+    .leave-note {
+      margin-top: 13px;
+      padding: 12px 15px;
 
-    .leave-text p {
-      margin: 0 0 7px;
+      border-radius: 12px;
+      background: #fff3f3;
 
-      color: #687386;
-
-      font-size: 14px;
-
+      color: #71808b;
+      font-size: 12px;
       line-height: 1.8;
     }
 
-
-    .leave-text ul {
-      margin: 0;
-
-      padding-left: 22px;
-
-      color: #687386;
-
-      font-size: 14px;
-
-      line-height: 1.9;
+    .leave-note strong {
+      color: #e52e3b;
     }
 
-
-    .leave-text li {
-      padding-left: 3px;
-
-      margin-bottom: 3px;
+    /* Footer */
+    .leave-main .menu-note {
+      margin-top: 8px;
     }
 
-
-    /* =====================================================
-       RED TEXT
-    ===================================================== */
-
-    .leave-red {
-      color: #d71920 !important;
-
-      font-weight: 700;
-    }
-
-
-    /* =====================================================
-       WARNING
-    ===================================================== */
-
-    .leave-warning {
-      margin-top: 11px;
-
-      padding: 9px 13px;
-
-      box-sizing: border-box;
-
-      background: #fff3f1;
-
-      border-left: 4px solid #d71920;
-
-      border-radius: 9px;
-
-      color: #687386;
-
-      font-size: 13px;
-
-      line-height: 1.7;
-    }
-
-
-    /* =====================================================
-       ANIMATION
-    ===================================================== */
-
+    /* Animation */
     @keyframes leaveFadeUp {
-
       from {
         opacity: 0;
-
-        transform: translateY(15px);
+        transform: translateY(12px);
       }
 
       to {
         opacity: 1;
-
         transform: translateY(0);
       }
-
     }
 
+    /* =========================================
+       Tablet
+    ========================================= */
 
-    /* =====================================================
-       TABLET
-    ===================================================== */
+    @media (max-width: 700px) {
 
-    @media (max-width: 900px) {
-
-      .leave-content-area {
-        padding: 22px;
+      .leave-page-title {
+        font-size: 19px;
       }
 
-    }
+      .leave-feature,
+      .leave-feature.image-left {
+        grid-template-columns: 1fr;
+      }
 
+      .leave-feature.image-left .leave-picture {
+        order: 0;
+      }
 
-    /* =====================================================
-       MOBILE
-    ===================================================== */
+      .leave-picture {
+        min-height: 145px;
+      }
 
-    @media (max-width: 600px) {
+      .leave-picture img {
+        height: 140px;
+      }
 
-      .leave-content-area {
+      .leave-section {
         padding: 15px;
       }
+    }
 
+    /* =========================================
+       Mobile
+    ========================================= */
 
-      .leave-title {
-        margin-bottom: 20px;
+    @media (max-width: 420px) {
+
+      .leave-heading {
+        gap: 9px;
       }
 
-
-      .leave-eyebrow {
-        margin-bottom: 6px;
-
-        font-size: 11px;
-      }
-
-
-      .leave-title h1 {
-        font-size: 23px;
-      }
-
-
-      .leave-title p {
-        font-size: 13px;
-      }
-
-
-      .leave-list {
-        gap: 13px;
-      }
-
-
-      .leave-item {
-        grid-template-columns: 75px minmax(0, 1fr);
-
-        gap: 13px;
-
-        padding: 14px;
-
-        border-radius: 18px;
-      }
-
-
-      .leave-icon {
-        width: 75px;
-        height: 75px;
-      }
-
-
-      .leave-text h3 {
-        margin-bottom: 6px;
-
-        font-size: 16px;
-      }
-
-
-      .leave-text p,
-      .leave-text ul {
+      .leave-number {
+        width: 34px;
+        height: 34px;
         font-size: 12px;
+      }
 
+      .leave-heading h2 {
+        font-size: 15px;
+      }
+
+      .leave-info li {
+        font-size: 12px;
         line-height: 1.8;
       }
 
-
-      .leave-warning {
-        font-size: 12px;
+      .leave-picture {
+        min-height: 125px;
+        padding: 7px;
       }
 
+      .leave-picture img {
+        height: 120px;
+      }
     }
-
-
-    /* =====================================================
-       REDUCE MOTION
-    ===================================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
-      .leave-item,
-      .leave-icon img {
-
+      .leave-section,
+      .leave-picture img {
         animation: none !important;
-
         transition: none !important;
       }
-
     }
-
   </style>
-
 </head>
 
 
 <body>
 
-
-  <!-- =====================================================
-       PAGE
-  ===================================================== -->
-
-  <main class="page menu-page leave-page">
+  <div class="page menu-page">
 
     <div class="menu-app">
 
+      <!-- HEADER: ใช้โครงสร้างเดียวกับหน้าอื่น -->
+    <header class="menu-header">
+      <img src="../assets/logo.png" class="menu-logo" alt="CP ALL">
 
-      <!-- =================================================
-           HEADER
-           เหมือน welfare.html / หน้าอื่น
-      ================================================= -->
+      <div class="employee-profile">
+        <span class="profile-icon">●</span>
+        <span>พนักงานใหม่</span>
+        <span>⌄</span>
+      </div>
+    </header>
 
-      <header class="menu-header">
-
-        <img
-          src="../assets/logo.png"
-          class="menu-logo"
-          alt="CP ALL"
-        >
-
-
-        <div class="employee-profile">
-
-          <span class="profile-icon">
-            ●
-          </span>
-
-          <span>
-            พนักงานใหม่
-          </span>
-
-          <span>
-            ⌄
-          </span>
-
-        </div>
-
-      </header>
-
-
-
-      <!-- =================================================
-           LAYOUT
-      ================================================= -->
+</header>
 
       <div class="menu-layout">
 
-
-        <!-- =================================================
-             SIDEBAR
-        ================================================= -->
-
+        <!-- SIDEBAR -->
         <aside class="menu-sidebar">
 
-
-          <a
-            href="../menu.html"
-            class="sidebar-item"
-          >
+          <a href="../menu.html" class="sidebar-item">
             <span>⌂</span>
             หน้าหลัก
           </a>
 
-
-          <a
-            href="welfare.html"
-            class="sidebar-item"
-          >
+          <a href="welfare.html" class="sidebar-item">
             <span>♡</span>
             สวัสดิการ
           </a>
 
-
-          <a
-            href="dress.html"
-            class="sidebar-item"
-          >
+          <a href="dress.html" class="sidebar-item">
             <span>♧</span>
             การแต่งกาย
           </a>
 
-
-          <a
-            href="salary.html"
-            class="sidebar-item"
-          >
+          <a href="salary.html" class="sidebar-item">
             <span>◷</span>
             การจ่ายค่าจ้าง
           </a>
 
-
-          <a
-            href="working-time.html"
-            class="sidebar-item"
-          >
+          <a href="working-time.html" class="sidebar-item">
             <span>◴</span>
             วันเวลาทำงาน
           </a>
 
-
-          <a
-            href="leave.html"
-            class="sidebar-item active"
-          >
+          <a href="leave.html" class="sidebar-item active">
             <span>♧</span>
             วันลา
           </a>
 
-
         </aside>
 
 
+        <!-- MAIN CONTENT -->
+        <main class="menu-main leave-main">
 
-        <!-- =================================================
-             MAIN
-             ไม่มี Banner
-        ================================================= -->
+          <div class="leave-content">
 
-        <main class="menu-main">
+            <!-- ไม่มี Banner -->
+
+            <h1 class="leave-page-title">
+              วันลา
+            </h1>
+
+            <p class="leave-page-desc">
+              ประเภทการลาและหลักเกณฑ์เบื้องต้นสำหรับพนักงาน
+            </p>
 
 
-          <div class="leave-content-area">
+            <!-- 01 ลาป่วย -->
+            <section class="leave-section">
 
+              <div class="leave-heading">
 
-            <!-- =================================================
-                 TITLE
-            ================================================= -->
+                <span class="leave-number">
+                  01
+                </span>
 
-            <div class="leave-title">
+                <h2>
+                  ลาป่วย
+                </h2>
 
-              <div class="leave-eyebrow">
-                EMPLOYEE GUIDE
               </div>
 
-              <h1>
-                วันลา
-              </h1>
 
-              <p>
-                ข้อมูลประเภทการลาและหลักเกณฑ์เบื้องต้นสำหรับพนักงาน
-              </p>
+              <div class="leave-feature">
 
-            </div>
-
-
-
-            <!-- =================================================
-                 LEAVE LIST
-            ================================================= -->
-
-            <div class="leave-list">
-
-
-              <!-- =================================================
-                   01 ลาป่วย
-              ================================================= -->
-
-              <article class="leave-item">
-
-                <div class="leave-icon">
-
-                  <img
-                    src="../assets/sick-leave.png"
-                    alt="ลาป่วย"
-                  >
-
-                </div>
-
-
-                <div class="leave-text">
-
-                  <h3>
-                    ลาป่วย
-                  </h3>
+                <div class="leave-info">
 
                   <ul>
 
@@ -632,34 +393,43 @@
 
                 </div>
 
-              </article>
 
-
-
-              <!-- =================================================
-                   02 ลากิจ
-              ================================================= -->
-
-              <article
-                class="leave-item"
-                style="animation-delay:.1s"
-              >
-
-                <div class="leave-icon">
+                <div class="leave-picture">
 
                   <img
-                    src="../assets/personal-leave.png"
-                    alt="ลากิจ"
+                    src="../assets/sick-leave.png"
+                    alt="ลาป่วย"
                   >
 
                 </div>
 
+              </div>
 
-                <div class="leave-text">
+            </section>
 
-                  <h3>
-                    ลากิจ
-                  </h3>
+
+            <!-- 02 ลากิจ -->
+            <section
+              class="leave-section"
+              style="animation-delay:.1s"
+            >
+
+              <div class="leave-heading">
+
+                <span class="leave-number">
+                  02
+                </span>
+
+                <h2>
+                  ลากิจ
+                </h2>
+
+              </div>
+
+
+              <div class="leave-feature image-left">
+
+                <div class="leave-info">
 
                   <ul>
 
@@ -679,34 +449,43 @@
 
                 </div>
 
-              </article>
 
-
-
-              <!-- =================================================
-                   03 ลาคลอด
-              ================================================= -->
-
-              <article
-                class="leave-item"
-                style="animation-delay:.2s"
-              >
-
-                <div class="leave-icon">
+                <div class="leave-picture">
 
                   <img
-                    src="../assets/maternity-leave.png"
-                    alt="ลาคลอด"
+                    src="../assets/personal-leave.png"
+                    alt="ลากิจ"
                   >
 
                 </div>
 
+              </div>
 
-                <div class="leave-text">
+            </section>
 
-                  <h3>
-                    ลาคลอด
-                  </h3>
+
+            <!-- 03 ลาคลอด -->
+            <section
+              class="leave-section"
+              style="animation-delay:.2s"
+            >
+
+              <div class="leave-heading">
+
+                <span class="leave-number">
+                  03
+                </span>
+
+                <h2>
+                  ลาคลอด
+                </h2>
+
+              </div>
+
+
+              <div class="leave-feature">
+
+                <div class="leave-info">
 
                   <ul>
 
@@ -721,44 +500,53 @@
                   </ul>
 
 
-                  <div class="leave-warning">
+                  <div class="leave-note">
 
-                    <span class="leave-red">
+                    <strong>
                       เฉพาะพนักงานหญิง
-                    </span>
+                    </strong>
 
                   </div>
 
                 </div>
 
-              </article>
 
-
-
-              <!-- =================================================
-                   04 ลาระดมพล
-              ================================================= -->
-
-              <article
-                class="leave-item"
-                style="animation-delay:.3s"
-              >
-
-                <div class="leave-icon">
+                <div class="leave-picture">
 
                   <img
-                    src="../assets/military-leave.png"
-                    alt="ลาระดมพล"
+                    src="../assets/maternity-leave.png"
+                    alt="ลาคลอด"
                   >
 
                 </div>
 
+              </div>
 
-                <div class="leave-text">
+            </section>
 
-                  <h3>
-                    ลาระดมพล
-                  </h3>
+
+            <!-- 04 ลาระดมพล -->
+            <section
+              class="leave-section"
+              style="animation-delay:.3s"
+            >
+
+              <div class="leave-heading">
+
+                <span class="leave-number">
+                  04
+                </span>
+
+                <h2>
+                  ลาระดมพล
+                </h2>
+
+              </div>
+
+
+              <div class="leave-feature image-left">
+
+                <div class="leave-info">
 
                   <ul>
 
@@ -775,40 +563,47 @@
 
                 </div>
 
-              </article>
 
-
-
-              <!-- =================================================
-                   05 ลาพักร้อน
-              ================================================= -->
-
-              <article
-                class="leave-item"
-                style="animation-delay:.4s"
-              >
-
-                <div class="leave-icon">
+                <div class="leave-picture">
 
                   <img
-                    src="../assets/annual-leave.png"
-                    alt="ลาพักร้อน"
+                    src="../assets/military-leave.png"
+                    alt="ลาระดมพล"
                   >
 
                 </div>
 
+              </div>
 
-                <div class="leave-text">
+            </section>
 
-                  <h3>
-                    ลาพักร้อน
-                  </h3>
 
+            <!-- 05 ลาพักร้อน -->
+            <section
+              class="leave-section"
+              style="animation-delay:.4s"
+            >
+
+              <div class="leave-heading">
+
+                <span class="leave-number">
+                  05
+                </span>
+
+                <h2>
+                  ลาพักร้อน
+                </h2>
+
+              </div>
+
+
+              <div class="leave-feature">
+
+                <div class="leave-info">
 
                   <p class="leave-red">
                     ใช้สิทธิได้หลังผ่านการทดลองงาน
                   </p>
-
 
                   <ul>
 
@@ -834,34 +629,54 @@
 
                 </div>
 
-              </article>
 
+                <div class="leave-picture">
+
+                  <img
+                    src="../assets/annual-leave.png"
+                    alt="ลาพักร้อน"
+                  >
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- FOOTER NOTE -->
+            <div class="menu-note">
+
+              <div class="note-icon">
+                ♥
+              </div>
+
+              <div>
+
+                <strong>
+                  CP ALL
+                </strong>
+
+                <p>
+                  เรียนรู้และเติบโตไปด้วยกันที่ CP ALL
+                </p>
+
+              </div>
 
             </div>
 
-
           </div>
-
 
         </main>
 
-
       </div>
-
 
     </div>
 
+  </div>
 
-  </main>
-
-
-
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
 
   <script src="../js/main.js"></script>
-
 
 </body>
 

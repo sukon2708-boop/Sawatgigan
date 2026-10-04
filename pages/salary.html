@@ -1,132 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>การจ่ายค่าจ้าง | CP ALL</title>
-
+  <title>การจ่ายค่าจ้าง</title>
   <link rel="stylesheet" href="../css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    .salary-main {
-      min-width: 0;
-    }
-
-    /* แบนเนอร์ด้านบน */
-    .salary-banner {
-      min-height: 145px;
-      margin-bottom: 24px;
-      padding: 26px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      border: 1px solid #f8dddd;
-      border-radius: 20px;
-      background: linear-gradient(120deg, #fff1f1, #ffe5e5);
-    }
-
-    .salary-banner small {
-      display: inline-block;
-      margin-bottom: 8px;
-      color: #ed3945;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .5px;
-    }
-
-    .salary-banner h1 {
-      margin: 0 0 7px;
-      color: #263746;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .salary-banner p {
-      margin: 0;
-      color: #7d8993;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .salary-banner-icon {
-      width: 75px;
-      height: 75px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      border-radius: 22px;
-      background: #fff;
-      color: #f23845;
-      font-size: 34px;
-      box-shadow: 0 5px 15px rgba(190, 70, 70, .07);
-    }
-
-    .salary-section-title {
-      margin: 0 0 15px;
-      color: #263746;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    /* กล่องเนื้อหาหลัก */
-    .salary-panel {
-      margin-bottom: 18px;
-      padding: 20px;
-      border: 1px solid #f1e5e5;
-      border-radius: 17px;
-      background: #fff;
-      box-shadow: 0 4px 13px rgba(30, 40, 50, .035);
-    }
-
-    .salary-panel-heading {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 17px;
-    }
-
-    .salary-number {
-      width: 38px;
-      height: 38px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #fff0f0;
-      color: #ed3945;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .salary-panel-heading h2 {
-      margin: 0;
-      color: #263746;
-      font-size: 17px;
-      font-weight: 700;
-    }
-
-    .salary-highlight,
-    .salary-contact {
+    .salary-highlight {
       color: #d71920;
       font-weight: 700;
     }
 
     .salary-contact {
+      color: #d71920;
+      font-weight: 700;
       white-space: nowrap;
     }
 
-    /* ขั้นตอนการจ่ายเงิน */
-    .salary-overview {
+    .salary-step p {
+      line-height: 1.7;
+    }
+
+    .salary-note p {
+      margin: 8px 0 0;
+      line-height: 1.7;
+    }
+
+    /* ส่วนบน: การ์ดอยู่ซ้าย รูป salary อยู่ขวา */
+    .salary-top {
+      grid-column: 1 / -1;
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(220px, .65fr);
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
       align-items: center;
-      gap: 18px;
+      width: 100%;
     }
 
     .salary-flow {
+      grid-column: 1;
+      grid-row: 1;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
@@ -135,212 +48,129 @@
 
     .salary-step {
       min-width: 0;
-      min-height: 190px;
-      padding: 18px 13px;
       text-align: center;
-      border: 1px solid #f1e5e5;
-      border-radius: 15px;
-      background: #fffafa;
+      padding: 20px 12px;
+      background: #fff;
+      border-radius: 26px;
+      box-shadow: 0 8px 20px rgba(170,20,25,.12);
     }
 
-    .salary-step-number {
-      width: 42px;
-      height: 42px;
-      margin: 0 auto 12px;
-      display: grid;
-      place-items: center;
+    .salary-step .number {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: #ed3945;
+      background: #d71920;
       color: #fff;
-      font-size: 17px;
-      font-weight: 700;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
     }
 
     .salary-step h3 {
-      margin: 0 0 9px;
-      color: #263746;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.5;
+      margin: 0 0 12px;
     }
 
     .salary-step p {
+      font-size: 13px;
       margin: 0;
-      color: #667580;
-      font-size: 12px;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
     .salary-top-image {
+      grid-column: 2;
+      grid-row: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
       min-width: 0;
-      min-height: 190px;
-      padding: 12px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      background: #fff5f4;
     }
 
     .salary-top-image img {
       display: block;
       width: 100%;
-      max-width: 270px;
-      max-height: 190px;
+      max-width: 420px;
+      max-height: 260px;
       object-fit: contain;
     }
 
-    /* กรณีวันจ่ายตรงวันหยุด */
-    .salary-example {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-left: 4px solid #ed3945;
-      border-radius: 0 12px 12px 0;
-      background: #fff5f4;
-    }
-
-    .salary-example strong {
-      color: #d71920;
-      font-size: 14px;
-    }
-
-    .salary-example p {
-      margin: 6px 0 0;
-      color: #667580;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .salary-panel > p {
-      margin: 0;
-      color: #667580;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    /* รูปประกอบด้านล่าง */
+    /* รูป boos ด้านล่าง */
     .salary-bottom-image {
-      min-height: 190px;
-      margin-bottom: 18px;
-      padding: 16px;
-      display: grid;
-      place-items: center;
-      border: 1px solid #f1e5e5;
-      border-radius: 17px;
-      background: #fff;
-      box-shadow: 0 4px 13px rgba(30, 40, 50, .035);
+      width: 100%;
+      height: 230px;
+      min-height: 230px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .salary-bottom-image img {
-      display: block;
       width: 100%;
-      max-width: 520px;
-      max-height: 220px;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
       object-fit: contain;
     }
 
-    /* หมายเหตุ */
-    .salary-note {
-      padding: 16px 18px;
-      border: 1px solid #f8dddd;
-      border-radius: 14px;
-      background: #fff5f4;
-    }
-
-    .salary-note strong {
-      color: #d71920;
-      font-size: 14px;
-    }
-
-    .salary-note p {
-      margin: 7px 0 0;
-      color: #667580;
-      font-size: 13px;
-      line-height: 1.8;
+    .salary-example {
+      margin-top: 12px;
     }
 
     @media (max-width: 900px) {
-      .salary-overview {
+      .salary-top {
         grid-template-columns: 1fr;
       }
 
+      .salary-flow {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
       .salary-top-image {
-        min-height: 150px;
+        grid-column: 1;
+        grid-row: 2;
       }
 
       .salary-top-image img {
-        max-height: 180px;
+        max-height: 220px;
       }
     }
 
     @media (max-width: 600px) {
-      .salary-banner {
-        min-height: 120px;
-        padding: 18px;
-        margin-bottom: 17px;
-      }
-
-      .salary-banner h1 {
-        font-size: 18px;
-      }
-
-      .salary-banner p {
-        font-size: 11px;
-      }
-
-      .salary-banner-icon {
-        width: 55px;
-        height: 55px;
-        border-radius: 16px;
-        font-size: 26px;
-      }
-
-      .salary-panel {
-        padding: 14px;
-        margin-bottom: 13px;
-      }
-
-      .salary-panel-heading h2 {
-        font-size: 15px;
-      }
-
       .salary-flow {
         grid-template-columns: 1fr;
       }
 
       .salary-step {
-        min-height: 0;
-        padding: 16px;
+        padding: 20px;
       }
 
-      .salary-step p {
-        font-size: 12px;
+      .salary-top-image img {
+        max-height: 180px;
       }
 
       .salary-bottom-image {
-        min-height: 150px;
-        padding: 12px;
-      }
-
-      .salary-bottom-image img {
-        max-height: 170px;
-      }
-
-      .salary-note {
-        padding: 13px;
-      }
-
-      .salary-note p {
-        font-size: 12px;
+        height: 190px;
+        min-height: 190px;
       }
     }
   </style>
 </head>
 
 <body>
+<div class="page content-page">
 
-<div class="page menu-page">
-  <div class="menu-app">
-
-    <!-- HEADER -->
     <header class="menu-header">
       <img src="../assets/logo.png" class="menu-logo" alt="CP ALL">
 
@@ -351,151 +181,88 @@
       </div>
     </header>
 
-    <div class="menu-layout">
+  <main class="container">
 
-      <!-- SIDEBAR -->
-      <aside class="menu-sidebar">
+    <div class="content-title fade-up">
+      <h1>การจ่ายค่าจ้าง</h1>
+      <p>รายละเอียดรอบคำนวณและกำหนดการจ่ายเงินเดือน</p>
+    </div>
 
-        <a href="../menu.html" class="sidebar-item">
-          <span>⌂</span> หน้าหลัก
-        </a>
+    <div class="content-layout">
 
-        <a href="welfare.html" class="sidebar-item">
-          <span>♡</span> สวัสดิการ
-        </a>
+      <!-- การ์ดอยู่ซ้าย รูป salary อยู่ขวา -->
+      <div class="salary-top">
 
-        <a href="dress.html" class="sidebar-item">
-          <span>♧</span> การแต่งกาย
-        </a>
+        <div class="salary-flow">
 
-        <a href="salary.html" class="sidebar-item active">
-          <span>◷</span> การจ่ายค่าจ้าง
-        </a>
-
-        <a href="working-time.html" class="sidebar-item">
-          <span>◴</span> วันเวลาทำงาน
-        </a>
-
-        <a href="leave.html" class="sidebar-item">
-          <span>♧</span> วันลา
-        </a>
-
-      </aside>
-
-      <!-- MAIN -->
-      <main class="menu-main salary-main">
-
-        <!-- BANNER -->
-        <section class="salary-banner">
-          <div>
-            <small>EMPLOYEE GUIDE</small>
-            <h1>การจ่ายค่าจ้าง</h1>
-            <p>รายละเอียดรอบคำนวณและกำหนดการจ่ายเงินเดือน</p>
-          </div>
-          <div class="salary-banner-icon">฿</div>
-        </section>
-
-        <h2 class="salary-section-title">รอบคำนวณและกำหนดการจ่ายเงิน</h2>
-
-        <!-- รอบการจ่ายค่าจ้าง -->
-        <section class="salary-panel">
-
-          <div class="salary-panel-heading">
-            <span class="salary-number">01</span>
-            <h2>ขั้นตอนการคำนวณและจ่ายค่าจ้าง</h2>
+          <div class="salary-step fade-up">
+            <div class="number">1</div>
+            <h3>อัตราค่าจ้าง</h3>
+            <p>การจ่ายค่าจ้างเป็นไปตามวุฒิการศึกษา</p>
           </div>
 
-          <div class="salary-overview">
-
-            <div class="salary-flow">
-
-              <article class="salary-step">
-                <div class="salary-step-number">1</div>
-                <h3>อัตราค่าจ้าง</h3>
-                <p>การจ่ายค่าจ้างเป็นไปตามวุฒิการศึกษา</p>
-              </article>
-
-              <article class="salary-step">
-                <div class="salary-step-number">2</div>
-                <h3>วันที่คำนวณเงินเดือนและรายได้</h3>
-                <p>
-                  ตั้งแต่วันที่
-                  <span class="salary-highlight">21 ของเดือนที่ผ่านมา</span>
-                  ถึงวันที่
-                  <span class="salary-highlight">20 ของเดือนปัจจุบัน</span>
-                </p>
-              </article>
-
-              <article class="salary-step">
-                <div class="salary-step-number">3</div>
-                <h3>วันจ่ายเงินเดือน</h3>
-                <p>
-                  จ่ายทุกวันที่
-                  <span class="salary-highlight">30</span>
-                  ของเดือน
-                </p>
-              </article>
-
-            </div>
-
-            <div class="salary-top-image">
-              <img src="../assets/salary.png" alt="การจ่ายค่าจ้าง">
-            </div>
-
-          </div>
-        </section>
-
-        <!-- กรณีวันจ่ายตรงวันหยุด -->
-        <section class="salary-panel">
-
-          <div class="salary-panel-heading">
-            <span class="salary-number">02</span>
-            <h2>กรณีวันจ่ายตรงกับวันหยุด</h2>
-          </div>
-
-          <p>
-            หากวันจ่ายเงินเดือนตรงกับวันเสาร์ วันอาทิตย์
-            หรือวันหยุดนักขัตฤกษ์ บริษัทจะเลื่อนการจ่ายเงินเดือนให้เร็วขึ้น
-            เพื่อให้ตรงกับวันทำการ
-          </p>
-
-          <div class="salary-example">
-            <strong>ตัวอย่าง</strong>
+          <div class="salary-step fade-up delay-1">
+            <div class="number">2</div>
+            <h3>วันที่คำนวณเงินเดือนและรายได้</h3>
             <p>
-              หากวันที่ 30 ตรงกับวันเสาร์
-              เงินเดือนจะเลื่อนมาจ่ายในวันศุกร์ที่
-              <span class="salary-highlight">29</span>
+              ตั้งแต่วันที่
+              <span class="salary-highlight">21 ของเดือนที่ผ่านมา</span>
+              ถึงวันที่
+              <span class="salary-highlight">20 ของเดือนปัจจุบัน</span>
             </p>
           </div>
 
-        </section>
+          <div class="salary-step fade-up delay-2">
+            <div class="number">3</div>
+            <h3>วันจ่ายเงินเดือน</h3>
+            <p>
+              จ่ายทุกวันที่
+              <span class="salary-highlight">30</span>
+              ของเดือน
+            </p>
+          </div>
 
-        <!-- รูปประกอบ -->
-        <div class="salary-bottom-image">
-          <img src="../assets/boos.png" alt="ภาพประกอบการจ่ายค่าจ้าง">
         </div>
 
-        <!-- หมายเหตุ -->
-        <div class="salary-note">
-          <strong>หมายเหตุ</strong>
+        <div class="salary-top-image fade-up">
+          <img src="../assets/salary.png" alt="การจ่ายค่าจ้าง">
+        </div>
+
+      </div>
+
+      <div class="card full fade-up delay-3">
+        <h2>กรณีวันจ่ายตรงกับวันหยุด</h2>
+        <p>
+          หากวันจ่ายเงินเดือนตรงกับวันเสาร์ วันอาทิตย์
+          หรือวันหยุดนักขัตฤกษ์ บริษัทจะเลื่อนการจ่ายเงินเดือนให้เร็วขึ้น
+          เพื่อให้ตรงกับวันทำการ
+        </p>
+
+        <div class="salary-example">
+          <strong>ตัวอย่าง</strong>
           <p>
-            กรณีมีข้อสงสัย ติดต่อฝ่ายบุคคลเท่านั้น
-            <span class="salary-contact">091-004-8991</span>
+            หากวันที่ 30 ตรงกับวันเสาร์
+            เงินเดือนจะเลื่อนมาจ่ายในวันศุกร์ที่
+            <span class="salary-highlight">29</span>
           </p>
         </div>
+      </div>
 
-        <!-- FOOTER -->
-        <div class="menu-note">
-          <div class="note-icon">♥</div>
-          <div>
-            <strong>CP ALL</strong>
-            <p>เรียนรู้และเติบโตไปด้วยกันที่ CP ALL</p>
-          </div>
-        </div>
+      <!-- รูป boos ใช้กรอบ placeholder เดิม -->
+      <div class="placeholder full fade-up delay-4 salary-bottom-image">
+        <img src="../assets/boos.png" alt="ภาพประกอบ">
+      </div>
 
-      </main>
+      <div class="note full fade-up delay-4 salary-note">
+        <strong>หมายเหตุ</strong>
+        <p>
+          กรณีมีข้อสงสัย ติดต่อฝ่ายบุคคลเท่านั้น
+          <span class="salary-contact">091-004-8991</span>
+        </p>
+      </div>
+
     </div>
-  </div>
+  </main>
 </div>
 
 <script src="../js/main.js"></script>
