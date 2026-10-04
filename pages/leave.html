@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>วันลา | CP ALL</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+
+    /* =====================================================
+       LEAVE PAGE
+       ใช้โครงสร้างเดียวกับหน้าอื่น
+       ไม่มี Banner
+       ไม่มี Background Image
+    ===================================================== */
+
+    .leave-page .menu-main {
+      position: relative !important;
+
+      min-width: 0 !important;
+
+      background: #ffffff !important;
+      background-image: none !important;
+
+      overflow: visible !important;
+    }
+
+
+    /* ปิด Background / Overlay จาก CSS หลัก */
+
+    .leave-page .menu-main::before,
+    .leave-page .menu-main::after {
+      display: none !important;
+
+      content: none !important;
+
+      background: none !important;
+      background-image: none !important;
+    }
+
+
+    /* =====================================================
+       HEADER
+       บังคับให้ใช้เหมือนหน้าอื่น
+    ===================================================== */
+
+    .leave-page .menu-header {
+      position: relative;
+      z-index: 10;
+    }
+
+
+    /* =====================================================
+       CONTENT
+    ===================================================== */
+
+    .leave-content-area {
+      width: 100%;
+      min-width: 0;
+
+      padding: 28px;
+
+      box-sizing: border-box;
+
+      background: #ffffff;
+    }
+
+
+    /* =====================================================
+       PAGE TITLE
+    ===================================================== */
+
+    .leave-title {
+      margin: 0 0 26px;
+    }
+
+
+    .leave-eyebrow {
+      margin: 0 0 7px;
+
+      color: #ef3340;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: .2px;
+    }
+
+
+    .leave-title h1 {
+      margin: 0 0 7px;
+
+      color: #263746;
+
+      font-size: 28px;
+      line-height: 1.3;
+
+      font-weight: 700;
+    }
+
+
+    .leave-title p {
+      margin: 0;
+
+      color: #687386;
+
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       LEAVE LIST
+    ===================================================== */
+
+    .leave-list {
+      display: flex;
+      flex-direction: column;
+
+      gap: 16px;
+
+      width: 100%;
+    }
+
+
+    /* =====================================================
+       LEAVE CARD
+    ===================================================== */
+
+    .leave-item {
+      display: grid;
+
+      grid-template-columns: 110px minmax(0, 1fr);
+
+      align-items: center;
+
+      gap: 20px;
+
+      width: 100%;
+
+      padding: 20px;
+
+      box-sizing: border-box;
+
+      background: #ffffff;
+
+      border: 1px solid #f1dddd;
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 6px 20px rgba(180, 0, 20, .055);
+
+      animation: leaveFadeUp .55s both;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+
+    .leave-item:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 10px 26px rgba(180, 0, 20, .10);
+    }
+
+
+    /* =====================================================
+       ICON
+    ===================================================== */
+
+    .leave-icon {
+      width: 110px;
+      height: 110px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      flex-shrink: 0;
+
+      box-sizing: border-box;
+
+      overflow: hidden;
+
+      border: 2px dashed #efa5a5;
+
+      border-radius: 50%;
+
+      background: #fffafa;
+    }
+
+
+    .leave-icon img {
+      display: block;
+
+      width: 76%;
+      height: 76%;
+
+      object-fit: contain;
+
+      transition: transform .3s ease;
+    }
+
+
+    .leave-item:hover .leave-icon img {
+      transform: scale(1.07);
+    }
+
+
+    /* =====================================================
+       TEXT
+    ===================================================== */
+
+    .leave-text {
+      min-width: 0;
+    }
+
+
+    .leave-text h3 {
+      margin: 0 0 9px;
+
+      color: #263746;
+
+      font-size: 19px;
+
+      font-weight: 700;
+    }
+
+
+    .leave-text p {
+      margin: 0 0 7px;
+
+      color: #687386;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+
+    .leave-text ul {
+      margin: 0;
+
+      padding-left: 22px;
+
+      color: #687386;
+
+      font-size: 14px;
+
+      line-height: 1.9;
+    }
+
+
+    .leave-text li {
+      padding-left: 3px;
+
+      margin-bottom: 3px;
+    }
+
+
+    /* =====================================================
+       RED TEXT
+    ===================================================== */
+
+    .leave-red {
+      color: #d71920 !important;
+
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       WARNING
+    ===================================================== */
+
+    .leave-warning {
+      margin-top: 11px;
+
+      padding: 9px 13px;
+
+      box-sizing: border-box;
+
+      background: #fff3f1;
+
+      border-left: 4px solid #d71920;
+
+      border-radius: 9px;
+
+      color: #687386;
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       ANIMATION
+    ===================================================== */
+
+    @keyframes leaveFadeUp {
+
+      from {
+        opacity: 0;
+
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform: translateY(0);
+      }
+
+    }
+
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .leave-content-area {
+        padding: 22px;
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 600px) {
+
+      .leave-content-area {
+        padding: 15px;
+      }
+
+
+      .leave-title {
+        margin-bottom: 20px;
+      }
+
+
+      .leave-eyebrow {
+        margin-bottom: 6px;
+
+        font-size: 11px;
+      }
+
+
+      .leave-title h1 {
+        font-size: 23px;
+      }
+
+
+      .leave-title p {
+        font-size: 13px;
+      }
+
+
+      .leave-list {
+        gap: 13px;
+      }
+
+
+      .leave-item {
+        grid-template-columns: 75px minmax(0, 1fr);
+
+        gap: 13px;
+
+        padding: 14px;
+
+        border-radius: 18px;
+      }
+
+
+      .leave-icon {
+        width: 75px;
+        height: 75px;
+      }
+
+
+      .leave-text h3 {
+        margin-bottom: 6px;
+
+        font-size: 16px;
+      }
+
+
+      .leave-text p,
+      .leave-text ul {
+        font-size: 12px;
+
+        line-height: 1.8;
+      }
+
+
+      .leave-warning {
+        font-size: 12px;
+      }
+
+    }
+
+
+    /* =====================================================
+       REDUCE MOTION
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .leave-item,
+      .leave-icon img {
+
+        animation: none !important;
+
+        transition: none !important;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       PAGE
+  ===================================================== -->
+
+  <main class="page menu-page leave-page">
+
+    <div class="menu-app">
+
+
+      <!-- =================================================
+           HEADER
+           เหมือน welfare.html / หน้าอื่น
+      ================================================= -->
+
+      <header class="menu-header">
+
+        <img
+          src="../assets/logo.png"
+          class="menu-logo"
+          alt="CP ALL"
+        >
+
+
+        <div class="employee-profile">
+
+          <span class="profile-icon">
+            ●
+          </span>
+
+          <span>
+            พนักงานใหม่
+          </span>
+
+          <span>
+            ⌄
+          </span>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- =================================================
+           LAYOUT
+      ================================================= -->
+
+      <div class="menu-layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================= -->
+
+        <aside class="menu-sidebar">
+
+
+          <a
+            href="../menu.html"
+            class="sidebar-item"
+          >
+            <span>⌂</span>
+            หน้าหลัก
+          </a>
+
+
+          <a
+            href="welfare.html"
+            class="sidebar-item"
+          >
+            <span>♡</span>
+            สวัสดิการ
+          </a>
+
+
+          <a
+            href="dress.html"
+            class="sidebar-item"
+          >
+            <span>♧</span>
+            การแต่งกาย
+          </a>
+
+
+          <a
+            href="salary.html"
+            class="sidebar-item"
+          >
+            <span>◷</span>
+            การจ่ายค่าจ้าง
+          </a>
+
+
+          <a
+            href="working-time.html"
+            class="sidebar-item"
+          >
+            <span>◴</span>
+            วันเวลาทำงาน
+          </a>
+
+
+          <a
+            href="leave.html"
+            class="sidebar-item active"
+          >
+            <span>♧</span>
+            วันลา
+          </a>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN
+             ไม่มี Banner
+        ================================================= -->
+
+        <main class="menu-main">
+
+
+          <div class="leave-content-area">
+
+
+            <!-- =================================================
+                 TITLE
+            ================================================= -->
+
+            <div class="leave-title">
+
+              <div class="leave-eyebrow">
+                EMPLOYEE GUIDE
+              </div>
+
+              <h1>
+                วันลา
+              </h1>
+
+              <p>
+                ข้อมูลประเภทการลาและหลักเกณฑ์เบื้องต้นสำหรับพนักงาน
+              </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LEAVE LIST
+            ================================================= -->
+
+            <div class="leave-list">
+
+
+              <!-- =================================================
+                   01 ลาป่วย
+              ================================================= -->
+
+              <article class="leave-item">
+
+                <div class="leave-icon">
+
+                  <img
+                    src="../assets/sick-leave.png"
+                    alt="ลาป่วย"
+                  >
+
+                </div>
+
+
+                <div class="leave-text">
+
+                  <h3>
+                    ลาป่วย
+                  </h3>
+
+                  <ul>
+
+                    <li>
+                      แจ้งให้ผู้จัดการทราบทันทีเมื่อเจ็บป่วย
+                    </li>
+
+                    <li>
+                      ยื่นใบลาและใบรับรองแพทย์ในวันแรกที่กลับเข้าทำงาน
+                    </li>
+
+                    <li>
+                      กรณีป่วยติดต่อกัน 3 วัน ต้องมีใบรับรองแพทย์
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </article>
+
+
+
+              <!-- =================================================
+                   02 ลากิจ
+              ================================================= -->
+
+              <article
+                class="leave-item"
+                style="animation-delay:.1s"
+              >
+
+                <div class="leave-icon">
+
+                  <img
+                    src="../assets/personal-leave.png"
+                    alt="ลากิจ"
+                  >
+
+                </div>
+
+
+                <div class="leave-text">
+
+                  <h3>
+                    ลากิจ
+                  </h3>
+
+                  <ul>
+
+                    <li>
+                      ยื่นใบลาล่วงหน้า 3 วัน
+                    </li>
+
+                    <li>
+                      ต้องได้รับอนุมัติจากผู้จัดการ จึงจะลาได้
+                    </li>
+
+                    <li>
+                      ลาเกิน 7 วันทำงาน จะไม่ได้รับค่าจ้างในวันที่ลาเกิน
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </article>
+
+
+
+              <!-- =================================================
+                   03 ลาคลอด
+              ================================================= -->
+
+              <article
+                class="leave-item"
+                style="animation-delay:.2s"
+              >
+
+                <div class="leave-icon">
+
+                  <img
+                    src="../assets/maternity-leave.png"
+                    alt="ลาคลอด"
+                  >
+
+                </div>
+
+
+                <div class="leave-text">
+
+                  <h3>
+                    ลาคลอด
+                  </h3>
+
+                  <ul>
+
+                    <li>
+                      ลาได้ไม่เกิน 120 วัน โดยนับรวมวันหยุดระหว่างการลา
+                    </li>
+
+                    <li>
+                      แจ้งให้ฝ่ายบุคคลทราบทันที หรือยื่นใบลาล่วงหน้า
+                    </li>
+
+                  </ul>
+
+
+                  <div class="leave-warning">
+
+                    <span class="leave-red">
+                      เฉพาะพนักงานหญิง
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+
+
+              <!-- =================================================
+                   04 ลาระดมพล
+              ================================================= -->
+
+              <article
+                class="leave-item"
+                style="animation-delay:.3s"
+              >
+
+                <div class="leave-icon">
+
+                  <img
+                    src="../assets/military-leave.png"
+                    alt="ลาระดมพล"
+                  >
+
+                </div>
+
+
+                <div class="leave-text">
+
+                  <h3>
+                    ลาระดมพล
+                  </h3>
+
+                  <ul>
+
+                    <li>
+                      ลาได้ตามหมายเรียก ไม่เกิน 60 วันต่อปี
+                    </li>
+
+                    <li>
+                      รายงานตัวพร้อมแสดงหลักฐานต่อบริษัทภายใน 3 วัน
+                      นับจากสิ้นสุดการฝึกทหาร
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </article>
+
+
+
+              <!-- =================================================
+                   05 ลาพักร้อน
+              ================================================= -->
+
+              <article
+                class="leave-item"
+                style="animation-delay:.4s"
+              >
+
+                <div class="leave-icon">
+
+                  <img
+                    src="../assets/annual-leave.png"
+                    alt="ลาพักร้อน"
+                  >
+
+                </div>
+
+
+                <div class="leave-text">
+
+                  <h3>
+                    ลาพักร้อน
+                  </h3>
+
+
+                  <p class="leave-red">
+                    ใช้สิทธิได้หลังผ่านการทดลองงาน
+                  </p>
+
+
+                  <ul>
+
+                    <li>
+                      แจ้งล่วงหน้า 7 วัน และต้องได้รับการอนุมัติ
+                    </li>
+
+                    <li>
+                      กรณีเร่งด่วน อาจเรียกกลับมาช่วยงานได้
+                      โดยนับวันลาที่เหลือไปใช้ในครั้งต่อไป
+                    </li>
+
+                    <li>
+                      ไม่สามารถสะสมวันลาได้ และนับตามปีปฏิทิน
+                    </li>
+
+                    <li>
+                      ไม่อนุญาตให้หยุดช่วงเทศกาลต่าง ๆ
+                      เว้นแต่ผู้จัดการจะเป็นผู้จัดการให้
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </article>
+
+
+            </div>
+
+
+          </div>
+
+
+        </main>
+
+
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="../js/main.js"></script>
+
+
+</body>
+
+</html>

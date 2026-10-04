@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>สวัสดิการ | CP ALL</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ใช้ธีมเดียวกับหน้าเมนู */
+    .welfare-main {
+      min-width: 0;
+    }
+
+    .welfare-banner {
+      min-height: 145px;
+      margin-bottom: 24px;
+      padding: 26px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      overflow: hidden;
+      border: 1px solid #f8dddd;
+      border-radius: 20px;
+      background: linear-gradient(120deg, #fff1f1, #ffe5e5);
+    }
+
+    .welfare-banner small {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #ed3945;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .welfare-banner h1 {
+      margin: 0 0 7px;
+      color: #263746;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .welfare-banner p {
+      margin: 0;
+      color: #7d8993;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .welfare-banner-icon {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: #fff;
+      color: #f23845;
+      font-size: 38px;
+      box-shadow: 0 5px 15px rgba(190, 70, 70, .07);
+    }
+
+    .welfare-page-title {
+      margin: 0 0 15px;
+      color: #263746;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    /* กล่องแต่ละหมวด */
+    .welfare-section {
+      margin-bottom: 18px;
+      padding: 20px;
+      border: 1px solid #f1e5e5;
+      border-radius: 17px;
+      background: #fff;
+      box-shadow: 0 4px 13px rgba(30, 40, 50, .035);
+    }
+
+    .welfare-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .welfare-number {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff0f0;
+      color: #ed3945;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .welfare-heading h2 {
+      margin: 0;
+      color: #263746;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .welfare-desc {
+      margin: 0 0 15px;
+      padding-left: 12px;
+      border-left: 3px solid #ff9da3;
+      color: #82909b;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* เนื้อหาและภาพสลับซ้าย-ขวา */
+    .welfare-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(210px, .85fr);
+      align-items: stretch;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .welfare-feature.image-left {
+      grid-template-columns: minmax(210px, .85fr) minmax(0, 1.15fr);
+    }
+
+    .welfare-feature.image-left .welfare-picture {
+      order: -1;
+    }
+
+    .welfare-info {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .welfare-card {
+      min-width: 0;
+      padding: 15px;
+      border: 1px solid #f1e5e5;
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .welfare-card.full {
+      grid-column: 1 / -1;
+    }
+
+    .welfare-card h3 {
+      margin: 0 0 8px;
+      color: #e52e3b;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .welfare-card p,
+    .welfare-card li {
+      color: #667580;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .welfare-card p {
+      margin: 0;
+    }
+
+    .welfare-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .welfare-picture {
+      min-width: 0;
+      min-height: 180px;
+      padding: 12px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid #f1e5e5;
+      border-radius: 14px;
+      background: #fffafa;
+    }
+
+    .welfare-picture img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+    }
+
+    /* ภาพ 2 ภาพในหมวดครอบครัว */
+    .welfare-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .welfare-gallery .welfare-picture {
+      min-height: 160px;
+    }
+
+    .welfare-gallery .welfare-picture img {
+      height: 155px;
+    }
+
+    .welfare-note {
+      margin-top: 12px;
+      padding: 13px 15px;
+      border-radius: 12px;
+      background: #fff3f3;
+      color: #71808b;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .welfare-note strong {
+      color: #e52e3b;
+    }
+
+    @media (max-width: 700px) {
+      .welfare-banner {
+        min-height: 120px;
+        padding: 18px;
+      }
+
+      .welfare-banner h1 {
+        font-size: 19px;
+      }
+
+      .welfare-banner p {
+        font-size: 11px;
+      }
+
+      .welfare-banner-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 29px;
+      }
+
+      .welfare-section {
+        padding: 14px;
+      }
+
+      .welfare-feature,
+      .welfare-feature.image-left {
+        grid-template-columns: 1fr;
+      }
+
+      .welfare-feature.image-left .welfare-picture {
+        order: 0;
+      }
+
+      .welfare-picture {
+        min-height: 145px;
+      }
+
+      .welfare-picture img {
+        height: 145px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .welfare-info {
+        grid-template-columns: 1fr;
+      }
+
+      .welfare-card.full {
+        grid-column: auto;
+      }
+
+      .welfare-heading h2 {
+        font-size: 15px;
+      }
+
+      .welfare-gallery {
+        gap: 8px;
+      }
+
+      .welfare-gallery .welfare-picture {
+        min-height: 125px;
+        padding: 7px;
+      }
+
+      .welfare-gallery .welfare-picture img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page menu-page">
+
+  <div class="menu-app">
+
+    <!-- HEADER: ใช้เหมือนหน้า menu.html -->
+<header class="menu-header">
+
+  <a href="index.html" class="logo-link" aria-label="กลับหน้าหลัก">
+    <img src="assets/logo.png" class="menu-logo" alt="CP ALL">
+  </a>
+
+  <div class="employee-profile">
+    <span class="profile-icon">●</span>
+    <span>พนักงานใหม่</span>
+    <span>⌄</span>
+  </div>
+
+</header>
+
+    <div class="menu-layout">
+
+      <!-- SIDEBAR: ใช้โครงสร้างเดียวกับหน้า menu.html -->
+      <aside class="menu-sidebar">
+
+        <a href="../menu.html" class="sidebar-item">
+          <span>⌂</span> หน้าหลัก
+        </a>
+
+        <a href="welfare.html" class="sidebar-item active">
+          <span>♡</span> สวัสดิการ
+        </a>
+
+        <a href="dress.html" class="sidebar-item">
+          <span>♧</span> การแต่งกาย
+        </a>
+
+        <a href="salary.html" class="sidebar-item">
+          <span>◷</span> การจ่ายค่าจ้าง
+        </a>
+
+        <a href="working-time.html" class="sidebar-item">
+          <span>◴</span> วันเวลาทำงาน
+        </a>
+
+        <a href="leave.html" class="sidebar-item">
+          <span>♧</span> วันลา
+        </a>
+
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="menu-main welfare-main">
+
+        <section class="welfare-banner">
+          <div>
+            <small>EMPLOYEE GUIDE</small>
+            <h1>สวัสดิการพนักงาน</h1>
+            <p>เรียนรู้สิทธิประโยชน์และสวัสดิการต่าง ๆ สำหรับพนักงานใหม่</p>
+          </div>
+          <div class="welfare-banner-icon">♡</div>
+        </section>
+
+        <h2 class="welfare-page-title">รายละเอียดสวัสดิการ</h2>
+
+        <!-- 1. ประกันสังคมและสิทธิรักษาพยาบาล -->
+        <section class="welfare-section">
+
+          <div class="welfare-heading">
+            <span class="welfare-number">01</span>
+            <h2>ประกันสังคมและสิทธิรักษาพยาบาล</h2>
+          </div>
+
+          <p class="welfare-desc">
+            สิทธิประโยชน์ด้านการรักษาพยาบาลสำหรับพนักงาน
+          </p>
+
+          <div class="welfare-feature">
+            <div class="welfare-info">
+
+              <article class="welfare-card">
+                <h3>ประกันสังคม</h3>
+                <ul>
+                  <li>ได้รับสิทธิประกันสังคมตามที่กฎหมายกำหนด</li>
+                </ul>
+              </article>
+
+              <article class="welfare-card">
+                <h3>สิทธิรักษาพยาบาล</h3>
+                <ul>
+                  <li>ได้รับสิทธิรักษาพยาบาลตามสิทธิพนักงาน</li>
+                  <li>สามารถเปลี่ยนสถานพยาบาลได้ตามเงื่อนไขที่กำหนด</li>
+                </ul>
+              </article>
+
+            </div>
+
+            <div class="welfare-picture">
+              <img src="../assets/hospital.png" alt="ประกันสังคมและสิทธิรักษาพยาบาล">
+            </div>
+          </div>
+
+        </section>
+
+        <!-- 2. สวัสดิการครอบครัว -->
+        <section class="welfare-section">
+
+          <div class="welfare-heading">
+            <span class="welfare-number">02</span>
+            <h2>สวัสดิการครอบครัว</h2>
+          </div>
+
+          <p class="welfare-desc">
+            สิทธิช่วยเหลือและสวัสดิการสำหรับพนักงานและครอบครัว
+          </p>
+
+          <div class="welfare-feature image-left">
+
+            <div class="welfare-info">
+
+              <article class="welfare-card">
+                <h3>ค่ารักษาพยาบาลสำหรับครอบครัว</h3>
+                <ul>
+                  <li>ค่ารักษาพยาบาลสำหรับครอบครัวตามเงื่อนไขที่กำหนด</li>
+                </ul>
+              </article>
+
+              <article class="welfare-card">
+                <h3>เยี่ยมไข้ / เยี่ยมคลอด</h3>
+                <ul>
+                  <li>สวัสดิการเยี่ยมไข้สำหรับผู้ป่วยใน</li>
+                  <li>สวัสดิการเยี่ยมคลอดสำหรับผู้ป่วยใน</li>
+                </ul>
+              </article>
+
+              <article class="welfare-card full">
+                <h3>เงินช่วยเหลือกรณีต่าง ๆ</h3>
+                <ul>
+                  <li>เงินช่วยเหลือกรณีสมรส</li>
+                  <li>เงินช่วยเหลือกรณีคลอดบุตร</li>
+                  <li>เงินช่วยเหลือกรณีมรณกรรม</li>
+                </ul>
+              </article>
+
+            </div>
+
+            <div class="welfare-picture">
+              <img src="../assets/family.png" alt="สวัสดิการครอบครัว">
+            </div>
+
+          </div>
+
+          <div class="welfare-gallery">
+            <div class="welfare-picture">
+              <img src="../assets/family-document.png" alt="เอกสารสวัสดิการครอบครัว">
+            </div>
+            <div class="welfare-picture">
+              <img src="../assets/family.png" alt="ภาพประกอบสวัสดิการครอบครัว">
+            </div>
+          </div>
+
+        </section>
+
+        <!-- 3. สวัสดิการค่ารักษาพยาบาล -->
+        <section class="welfare-section">
+
+          <div class="welfare-heading">
+            <span class="welfare-number">03</span>
+            <h2>สวัสดิการค่ารักษาพยาบาล</h2>
+          </div>
+
+          <p class="welfare-desc">
+            สิทธิค่ารักษาพยาบาลตามสวัสดิการที่บริษัทกำหนด
+          </p>
+
+          <div class="welfare-feature">
+
+            <div class="welfare-info">
+
+              <article class="welfare-card">
+                <h3>ผู้ป่วยใน (IPD)</h3>
+                <p>
+                  สวัสดิการค่ารักษาพยาบาลกรณีเข้ารับการรักษา
+                  และพักรักษาตัวในโรงพยาบาล
+                </p>
+              </article>
+
+              <article class="welfare-card">
+                <h3>ผู้ป่วยนอก (OPD)</h3>
+                <p>
+                  สวัสดิการค่ารักษาพยาบาลกรณีเข้ารับบริการ
+                  โดยไม่ต้องพักรักษาตัวในโรงพยาบาล
+                </p>
+              </article>
+
+              <article class="welfare-card full">
+                <h3>ค่าห้อง / ค่าอาหาร</h3>
+                <p>
+                  สิทธิค่าห้องและค่าอาหารตามหลักเกณฑ์
+                  และเงื่อนไขที่บริษัทกำหนด
+                </p>
+              </article>
+
+            </div>
+
+            <div class="welfare-picture">
+              <img src="../assets/medical.png" alt="สวัสดิการค่ารักษาพยาบาล">
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- 4. เงินช่วยเหลือและเงินกู้ -->
+        <section class="welfare-section">
+
+          <div class="welfare-heading">
+            <span class="welfare-number">04</span>
+            <h2>เงินช่วยเหลือและเงินกู้</h2>
+          </div>
+
+          <p class="welfare-desc">
+            สวัสดิการด้านการเงินเพื่อช่วยเหลือพนักงานในกรณีต่าง ๆ
+          </p>
+
+          <div class="welfare-feature image-left">
+
+            <div class="welfare-info">
+
+              <article class="welfare-card">
+                <h3>เงินช่วยเหลือ</h3>
+                <ul>
+                  <li>เงินช่วยเหลือกรณีประสบภัยพิบัติ</li>
+                </ul>
+              </article>
+
+              <article class="welfare-card">
+                <h3>เงินกู้ยืมและเงินยืมฉุกเฉิน</h3>
+                <ul>
+                  <li>เงินกู้ยืมกรณีเจ็บป่วย</li>
+                  <li>เงินยืมฉุกเฉินกรณีประสบภัยพิบัติ</li>
+                </ul>
+              </article>
+
+              <article class="welfare-card full">
+                <h3>โครงการกู้เพื่อที่พักอาศัย</h3>
+                <p>
+                  โครงการเงินกู้เพื่อที่พักอาศัยสำหรับพนักงาน
+                  ตามเงื่อนไขที่กำหนด
+                </p>
+              </article>
+
+            </div>
+
+            <div class="welfare-picture">
+              <img src="../assets/financial.png" alt="เงินช่วยเหลือและเงินกู้">
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- 5. กองทุนสำรองเลี้ยงชีพ -->
+        <section class="welfare-section">
+
+          <div class="welfare-heading">
+            <span class="welfare-number">05</span>
+            <h2>กองทุนสำรองเลี้ยงชีพ</h2>
+          </div>
+
+          <p class="welfare-desc">
+            สิทธิประโยชน์ด้านการออมเพื่ออนาคตของพนักงาน
+          </p>
+
+          <div class="welfare-feature">
+
+            <div class="welfare-info">
+
+              <article class="welfare-card">
+                <h3>คุณสมบัติการได้รับสิทธิ</h3>
+                <ul>
+                  <li>มีสิทธิเมื่ออายุงาน 1 ปีขึ้นไป</li>
+                </ul>
+              </article>
+
+              <article class="welfare-card">
+                <h3>เงินสมทบตามอายุงาน</h3>
+                <ul>
+                  <li>ได้รับเงินสมทบตามอายุงาน</li>
+                  <li>อายุงานตั้งแต่ 5 ปีขึ้นไป รับเงินสมทบ 100%</li>
+                </ul>
+              </article>
+
+            </div>
+
+            <div class="welfare-picture">
+              <img src="../assets/provident-fund.png" alt="กองทุนสำรองเลี้ยงชีพ">
+            </div>
+
+          </div>
+
+          <div class="welfare-note">
+            <strong>หมายเหตุ</strong>
+            การได้รับสิทธิและเงินสมทบเป็นไปตามเงื่อนไข
+            และข้อกำหนดของกองทุนสำรองเลี้ยงชีพ
+          </div>
+
+        </section>
+
+        <!-- FOOTER NOTE: เหมือนหน้าเมนู -->
+        <div class="menu-note">
+          <div class="note-icon">♥</div>
+          <div>
+            <strong>CP ALL</strong>
+            <p>เรียนรู้และเติบโตไปด้วยกันที่ CP ALL</p>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>

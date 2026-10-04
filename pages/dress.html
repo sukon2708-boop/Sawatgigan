@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>การแต่งกาย | CP ALL</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .dress-main {
+      min-width: 0;
+    }
+
+    /* แบนเนอร์ใช้โทนเดียวกับหน้าเมนู */
+    .dress-banner {
+      min-height: 145px;
+      margin-bottom: 24px;
+      padding: 26px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border: 1px solid #f8dddd;
+      border-radius: 20px;
+      background: linear-gradient(120deg, #fff1f1, #ffe5e5);
+    }
+
+    .dress-banner small {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #ed3945;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .dress-banner h1 {
+      margin: 0 0 7px;
+      color: #263746;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .dress-banner p {
+      margin: 0;
+      color: #7d8993;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .dress-banner-icon {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: #fff;
+      color: #f23845;
+      font-size: 36px;
+      box-shadow: 0 5px 15px rgba(190, 70, 70, .07);
+    }
+
+    .dress-section-title {
+      margin: 0 0 15px;
+      color: #263746;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    /* กล่องรายการ */
+    .dress-section {
+      padding: 20px;
+      margin-bottom: 18px;
+      border: 1px solid #f1e5e5;
+      border-radius: 17px;
+      background: #fff;
+      box-shadow: 0 4px 13px rgba(30, 40, 50, .035);
+    }
+
+    .dress-section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .dress-number {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff0f0;
+      color: #ed3945;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .dress-section-heading h2 {
+      margin: 0;
+      color: #263746;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .dress-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .dress-item {
+      min-width: 0;
+      min-height: 140px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid #f1e5e5;
+      border-radius: 14px;
+      background: #fff;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .dress-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(30, 40, 50, .06);
+    }
+
+    .dress-img {
+      width: 105px;
+      height: 105px;
+      flex-shrink: 0;
+      padding: 7px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #fff5f4;
+    }
+
+    .dress-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .dress-item h3 {
+      margin: 0 0 7px;
+      color: #e52e3b;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .dress-item p {
+      margin: 0 0 5px;
+      color: #667580;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .dress-item p:last-child {
+      margin-bottom: 0;
+    }
+
+    .red-text {
+      color: #d71920 !important;
+      font-weight: 700;
+    }
+
+    /* หมายเหตุฮิญาบ */
+    .note-hijab {
+      margin-top: 14px;
+      padding: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border: 1px solid #f8dddd;
+      border-radius: 14px;
+      background: #fff5f4;
+    }
+
+    .note-hijab-text {
+      min-width: 0;
+    }
+
+    .note-hijab-text strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #e52e3b;
+      font-size: 15px;
+    }
+
+    .note-hijab-text p {
+      margin: 0 0 6px;
+      color: #667580;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .note-hijab-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .note-hijab-img {
+      width: 130px;
+      height: 115px;
+      flex-shrink: 0;
+      padding: 8px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .note-hijab-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @media (max-width: 900px) {
+      .dress-list {
+        grid-template-columns: 1fr;
+      }
+
+      .dress-item {
+        min-height: 120px;
+      }
+
+      .dress-img {
+        width: 95px;
+        height: 95px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .dress-banner {
+        min-height: 120px;
+        padding: 18px;
+        margin-bottom: 17px;
+      }
+
+      .dress-banner h1 {
+        font-size: 18px;
+      }
+
+      .dress-banner p {
+        font-size: 11px;
+      }
+
+      .dress-banner-icon {
+        width: 55px;
+        height: 55px;
+        border-radius: 16px;
+        font-size: 27px;
+      }
+
+      .dress-section {
+        padding: 14px;
+        margin-bottom: 13px;
+      }
+
+      .dress-section-heading h2 {
+        font-size: 15px;
+      }
+
+      .dress-item {
+        padding: 11px;
+        gap: 11px;
+      }
+
+      .dress-img {
+        width: 82px;
+        height: 82px;
+      }
+
+      .dress-item h3 {
+        font-size: 13px;
+      }
+
+      .dress-item p {
+        font-size: 11px;
+      }
+
+      .note-hijab {
+        padding: 12px;
+        gap: 10px;
+      }
+
+      .note-hijab-text strong {
+        font-size: 13px;
+      }
+
+      .note-hijab-text p {
+        font-size: 11px;
+      }
+
+      .note-hijab-img {
+        width: 90px;
+        height: 90px;
+      }
+    }
+
+    @media (max-width: 370px) {
+      .dress-item {
+        align-items: flex-start;
+      }
+
+      .dress-img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .note-hijab {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .note-hijab-img {
+        width: 100%;
+        height: 110px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page menu-page">
+
+  <div class="menu-app">
+
+    <!-- HEADER: เหมือนหน้า menu.html -->
+<header class="menu-header">
+
+  <a href="index.html" class="logo-link" aria-label="กลับหน้าหลัก">
+    <img src="assets/logo.png" class="menu-logo" alt="CP ALL">
+  </a>
+
+  <div class="employee-profile">
+    <span class="profile-icon">●</span>
+    <span>พนักงานใหม่</span>
+    <span>⌄</span>
+  </div>
+
+</header>
+
+    <div class="menu-layout">
+
+      <!-- SIDEBAR: เหมือนหน้า menu.html -->
+      <aside class="menu-sidebar">
+
+        <a href="../menu.html" class="sidebar-item">
+          <span>⌂</span> หน้าหลัก
+        </a>
+
+        <a href="welfare.html" class="sidebar-item">
+          <span>♡</span> สวัสดิการ
+        </a>
+
+        <a href="dress.html" class="sidebar-item active">
+          <span>♧</span> การแต่งกาย
+        </a>
+
+        <a href="salary.html" class="sidebar-item">
+          <span>◷</span> การจ่ายค่าจ้าง
+        </a>
+
+        <a href="working-time.html" class="sidebar-item">
+          <span>◴</span> วันเวลาทำงาน
+        </a>
+
+        <a href="leave.html" class="sidebar-item">
+          <span>♧</span> วันลา
+        </a>
+
+      </aside>
+
+      <!-- MAIN -->
+      <main class="menu-main dress-main">
+
+        <section class="dress-banner">
+          <div>
+            <small>EMPLOYEE GUIDE</small>
+            <h1>ระเบียบปฏิบัติการทำงานและการแต่งกาย</h1>
+            <p>ข้อกำหนดการแต่งกายและบุคลิกภาพของพนักงาน</p>
+          </div>
+          <div class="dress-banner-icon">♧</div>
+        </section>
+
+        <h2 class="dress-section-title">การแต่งกายและบุคลิกภาพ</h2>
+
+        <section class="dress-section">
+
+          <div class="dress-section-heading">
+            <span class="dress-number">01</span>
+            <h2>ข้อกำหนดการแต่งกาย</h2>
+          </div>
+
+          <div class="dress-list">
+
+            <!-- เสื้อพนักงาน -->
+            <article class="dress-item">
+              <div class="dress-img">
+                <img src="../assets/uniform.png" alt="เสื้อพนักงาน">
+              </div>
+              <div>
+                <h3>เสื้อพนักงาน</h3>
+                <p>เบิกกับบริษัทได้จำนวน 4 ตัว</p>
+              </div>
+            </article>
+
+            <!-- กางเกง -->
+            <article class="dress-item">
+              <div class="dress-img">
+                <img src="../assets/pants.png" alt="กางเกง">
+              </div>
+              <div>
+                <h3>กางเกง</h3>
+                <p class="red-text">ต้องเป็นสีดำเท่านั้น และห้ามใส่กางเกงยีนส์</p>
+              </div>
+            </article>
+
+            <!-- รองเท้า -->
+            <article class="dress-item">
+              <div class="dress-img">
+                <img src="../assets/shoes.png" alt="รองเท้าผ้าใบ">
+              </div>
+              <div>
+                <h3>รองเท้า</h3>
+                <p>รองเท้าผ้าใบสีดำ มีลวดลายได้ไม่เกิน 10%</p>
+              </div>
+            </article>
+
+            <!-- เครื่องประดับ -->
+            <article class="dress-item">
+              <div class="dress-img">
+                <img src="../assets/accessories.png" alt="เครื่องประดับ">
+              </div>
+              <div>
+                <h3>เครื่องประดับ</h3>
+                <p class="red-text">ห้ามสวมใส่เครื่องประดับทุกชนิด</p>
+              </div>
+            </article>
+
+            <!-- เล็บ -->
+            <article class="dress-item">
+              <div class="dress-img">
+                <img src="../assets/nails.png" alt="เล็บ">
+              </div>
+              <div>
+                <h3>เล็บ</h3>
+                <p class="red-text">ห้ามไว้เล็บยาว และห้ามทำเล็บสวยงาม</p>
+              </div>
+            </article>
+
+            <!-- ทรงผม -->
+            <article class="dress-item">
+              <div class="dress-img">
+                <img src="../assets/hairstyle.png" alt="ทรงผม">
+              </div>
+              <div>
+                <h3>ทรงผม</h3>
+                <p><strong>ผู้ชาย:</strong> ตัดผมให้เรียบร้อย และไม่ไว้หนวดเครา</p>
+                <p><strong>ผู้หญิง:</strong> รวบหรือมัดผมให้เรียบร้อย</p>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- หมายเหตุฮิญาบ -->
+          <div class="note-hijab">
+            <div class="note-hijab-text">
+              <strong>หมายเหตุ</strong>
+
+              <p>
+                สำหรับพนักงานที่เป็นมุสลิม
+                ผ้าคลุมฮิญาบต้องเป็น
+                <span class="red-text">สีขาว</span> เท่านั้น
+              </p>
+
+              <p>
+                กรณีใส่ปลอกแขน ควรสอบถาม
+                <span class="red-text">ผู้จัดการร้าน</span>
+              </p>
+            </div>
+
+            <div class="note-hijab-img">
+              <img src="../assets/hijab.png" alt="ผ้าคลุมฮิญาบ">
+            </div>
+          </div>
+
+        </section>
+
+        <!-- FOOTER: เหมือนหน้า menu.html -->
+        <div class="menu-note">
+          <div class="note-icon">♥</div>
+          <div>
+            <strong>CP ALL</strong>
+            <p>เรียนรู้และเติบโตไปด้วยกันที่ CP ALL</p>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>
