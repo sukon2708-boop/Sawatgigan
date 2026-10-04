@@ -1,258 +1,156 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
-
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>วันลา | CP ALL</title>
+  <title>วันลา | คู่มือพนักงานใหม่ CP ALL</title>
 
   <link rel="stylesheet" href="../css/style.css">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* MAIN */
-    .leave-main {
-      min-width: 0;
+    body {
+      font-family: "Prompt", sans-serif;
     }
 
-    .leave-content {
+    .leave-content-area {
       width: 100%;
-      box-sizing: border-box;
     }
 
-    /* PAGE TITLE */
-    .leave-page-title {
-      margin: 0 0 7px;
+    .leave-title {
       color: #263746;
-      font-size: 22px;
-      font-weight: 700;
+      font-size: 26px;
+      font-weight: 600;
+      margin: 0 0 22px;
     }
 
-    .leave-page-desc {
-      margin: 0 0 20px;
-      color: #82909b;
-      font-size: 13px;
-      line-height: 1.7;
+    .leave-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    /* SECTION */
-    .leave-section {
-      margin-bottom: 18px;
+    /* กรอบสีแดงอ่อนของการ์ดวันลา */
+    .leave-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
       padding: 20px;
+      background: #ffffff;
       border: 1px solid #f1e5e5;
       border-radius: 17px;
-      background: #fff;
-      box-shadow: 0 4px 13px rgba(30, 40, 50, .035);
-      animation: leaveFadeUp .5s ease both;
-      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
     }
 
-    .leave-section:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 7px 18px rgba(30, 40, 50, .06);
-    }
-
-    /* HEADING */
-    .leave-heading {
+    .leave-icon {
+      width: 76px;
+      height: 76px;
+      min-width: 76px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
+      justify-content: center;
+      background: #fff3f3;
+      border-radius: 14px;
+      overflow: hidden;
     }
 
-    .leave-number {
-      width: 38px;
-      height: 38px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #fff0f0;
-      color: #ed3945;
-      font-size: 14px;
-      font-weight: 700;
+    .leave-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
     }
 
-    .leave-heading h2 {
-      margin: 0;
-      color: #263746;
-      font-size: 17px;
-      font-weight: 700;
-    }
-
-    /* CONTENT */
-    .leave-feature {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 180px;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .leave-feature.image-left {
-      grid-template-columns: 180px minmax(0, 1fr);
-    }
-
-    .leave-feature.image-left .leave-picture {
-      order: -1;
-    }
-
-    .leave-info {
+    .leave-text {
+      flex: 1;
       min-width: 0;
     }
 
-    .leave-info ul {
+    .leave-text h2 {
+      margin: 0 0 10px;
+      color: #263746;
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .leave-text ul {
       margin: 0;
-      padding-left: 20px;
-    }
-
-    .leave-info li {
-      margin-bottom: 7px;
+      padding-left: 22px;
       color: #667580;
-      font-size: 13px;
       line-height: 1.8;
+      font-size: 15px;
     }
 
-    .leave-info li:last-child {
-      margin-bottom: 0;
+    .leave-text li {
+      padding-left: 3px;
+      margin-bottom: 4px;
     }
 
-    /* IMAGE */
-    .leave-picture {
-      width: 100%;
-      min-height: 150px;
-      padding: 10px;
-      display: grid;
-      place-items: center;
-      box-sizing: border-box;
-      overflow: hidden;
+    .leave-red {
+      color: #ed3945;
+      font-weight: 500;
+    }
+
+    .leave-warning {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: #fff3f3;
       border: 1px solid #f1e5e5;
       border-radius: 14px;
-      background: #fffafa;
+      color: #667580;
+      line-height: 1.7;
+      font-size: 14px;
     }
 
-    .leave-picture img {
-      display: block;
-      width: 100%;
-      height: 145px;
-      object-fit: contain;
-      transition: transform .3s ease;
-    }
-
-    .leave-section:hover .leave-picture img {
-      transform: scale(1.04);
-    }
-
-    /* RED TEXT */
-    .leave-red {
-      margin: 0 0 10px;
-      color: #e52e3b;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* NOTE */
-    .leave-note {
-      margin-top: 13px;
-      padding: 12px 15px;
-      border-radius: 12px;
-      background: #fff3f3;
-      color: #71808b;
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    .leave-note strong {
-      color: #e52e3b;
-    }
-
-    /* FOOTER */
-    .leave-main .menu-note {
-      margin-top: 8px;
-    }
-
-    /* ANIMATION */
-    @keyframes leaveFadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
+    @media (max-width: 768px) {
+      .leave-title {
+        font-size: 22px;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* TABLET */
-    @media (max-width: 700px) {
-
-      .leave-page-title {
-        font-size: 19px;
-      }
-
-      .leave-feature,
-      .leave-feature.image-left {
-        grid-template-columns: 1fr;
-      }
-
-      .leave-feature.image-left .leave-picture {
-        order: 0;
-      }
-
-      .leave-picture {
-        min-height: 145px;
-      }
-
-      .leave-picture img {
-        height: 140px;
-      }
-
-      .leave-section {
+      .leave-item {
+        gap: 13px;
         padding: 15px;
       }
-    }
 
-    /* MOBILE */
-    @media (max-width: 420px) {
-
-      .leave-heading {
-        gap: 9px;
+      .leave-icon {
+        width: 62px;
+        height: 62px;
+        min-width: 62px;
       }
 
-      .leave-number {
-        width: 34px;
-        height: 34px;
-        font-size: 12px;
+      .leave-text h2 {
+        font-size: 17px;
       }
 
-      .leave-heading h2 {
-        font-size: 15px;
-      }
-
-      .leave-info li {
-        font-size: 12px;
-        line-height: 1.8;
-      }
-
-      .leave-picture {
-        min-height: 125px;
-        padding: 7px;
-      }
-
-      .leave-picture img {
-        height: 120px;
+      .leave-text ul {
+        font-size: 14px;
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @media (max-width: 480px) {
+      .leave-item {
+        gap: 10px;
+        padding: 13px;
+      }
 
-      .leave-section,
-      .leave-picture img {
-        animation: none !important;
-        transition: none !important;
+      .leave-icon {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+      }
+
+      .leave-text h2 {
+        font-size: 16px;
+      }
+
+      .leave-text ul {
+        font-size: 13px;
+        padding-left: 18px;
       }
     }
   </style>
@@ -260,266 +158,170 @@
 
 <body>
 
-<div class="page menu-page">
+  <div class="page content-page">
 
-  <div class="menu-app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <a class="back" href="../menu.html">
+          <span>←</span> กลับหน้าหลัก
+        </a>
 
-    <!-- HEADER -->
-    <header class="menu-header">
-
-      <img
-        src="../assets/logo.png"
-        class="menu-logo"
-        alt=""
-        onerror="this.style.display='none'"
-      >
-
-      <div class="employee-profile">
-        <span class="profile-icon">●</span>
-        <span>พนักงานใหม่</span>
-        <span>⌄</span>
+        <div class="header-logo">
+          <img src="../assets/logo.png" alt="CP ALL"
+               onerror="this.style.display='none'">
+        </div>
       </div>
-
     </header>
 
-    <div class="menu-layout">
+    <!-- Main layout -->
+    <div class="menu-app">
+      <div class="menu-layout">
 
-      <!-- SIDEBAR -->
-      <aside class="menu-sidebar">
+        <!-- Sidebar -->
+        <aside class="menu-sidebar">
+          <a href="../menu.html" class="sidebar-item">
+            <span>หน้าหลัก</span>
+          </a>
 
-        <a href="../menu.html" class="sidebar-item">
-          <span>⌂</span>
-          หน้าหลัก
-        </a>
+          <a href="welfare.html" class="sidebar-item">
+            <span>สวัสดิการ</span>
+          </a>
 
-        <a href="welfare.html" class="sidebar-item">
-          <span>♡</span>
-          สวัสดิการ
-        </a>
+          <a href="dress.html" class="sidebar-item">
+            <span>การแต่งกาย</span>
+          </a>
 
-        <a href="dress.html" class="sidebar-item">
-          <span>♧</span>
-          การแต่งกาย
-        </a>
+          <a href="salary.html" class="sidebar-item">
+            <span>เงินเดือนและค่าตอบแทน</span>
+          </a>
 
-        <a href="salary.html" class="sidebar-item">
-          <span>◷</span>
-          การจ่ายค่าจ้าง
-        </a>
+          <a href="working-time.html" class="sidebar-item">
+            <span>เวลาการทำงาน</span>
+          </a>
 
-        <a href="working-time.html" class="sidebar-item">
-          <span>◴</span>
-          วันเวลาทำงาน
-        </a>
+          <a href="leave.html" class="sidebar-item active">
+            <span>วันลา</span>
+          </a>
+        </aside>
 
-        <a href="leave.html" class="sidebar-item active">
-          <span>♧</span>
-          วันลา
-        </a>
+        <!-- Content -->
+        <main class="menu-main">
+          <section class="leave-content-area">
 
-      </aside>
+            <h1 class="leave-title">ระเบียบการลา</h1>
 
-      <!-- MAIN CONTENT -->
-      <main class="menu-main leave-main">
+            <div class="leave-list">
 
-        <div class="leave-content">
-
-          <!-- TITLE -->
-          <h1 class="leave-page-title">
-            วันลา
-          </h1>
-
-          <p class="leave-page-desc">
-            ประเภทการลาและหลักเกณฑ์เบื้องต้นสำหรับพนักงาน
-          </p>
-
-          <!-- 01 ลาป่วย -->
-          <section class="leave-section">
-
-            <div class="leave-heading">
-              <span class="leave-number">01</span>
-              <h2>ลาป่วย</h2>
-            </div>
-
-            <div class="leave-feature">
-
-              <div class="leave-info">
-                <ul>
-                  <li>แจ้งให้ผู้จัดการทราบทันทีเมื่อเจ็บป่วย</li>
-                  <li>ยื่นใบลาและใบรับรองแพทย์ในวันแรกที่กลับเข้าทำงาน</li>
-                  <li>กรณีป่วยติดต่อกัน 3 วัน ต้องมีใบรับรองแพทย์</li>
-                </ul>
-              </div>
-
-              <div class="leave-picture">
-                <img
-                  src="../assets/sick-leave.png"
-                  alt=""
-                  onerror="this.style.display='none'"
-                >
-              </div>
-
-            </div>
-          </section>
-
-          <!-- 02 ลากิจ -->
-          <section class="leave-section" style="animation-delay:.1s">
-
-            <div class="leave-heading">
-              <span class="leave-number">02</span>
-              <h2>ลากิจ</h2>
-            </div>
-
-            <div class="leave-feature image-left">
-
-              <div class="leave-info">
-                <ul>
-                  <li>ยื่นใบลาล่วงหน้า 3 วัน</li>
-                  <li>ต้องได้รับอนุมัติจากผู้จัดการ จึงจะลาได้</li>
-                  <li>ลาเกิน 7 วันทำงาน จะไม่ได้รับค่าจ้างในวันที่ลาเกิน</li>
-                </ul>
-              </div>
-
-              <div class="leave-picture">
-                <img
-                  src="../assets/personal-leave.png"
-                  alt=""
-                  onerror="this.style.display='none'"
-                >
-              </div>
-
-            </div>
-          </section>
-
-          <!-- 03 ลาคลอด -->
-          <section class="leave-section" style="animation-delay:.2s">
-
-            <div class="leave-heading">
-              <span class="leave-number">03</span>
-              <h2>ลาคลอด</h2>
-            </div>
-
-            <div class="leave-feature">
-
-              <div class="leave-info">
-                <ul>
-                  <li>ลาได้ไม่เกิน 120 วัน โดยนับรวมวันหยุดระหว่างการลา</li>
-                  <li>แจ้งให้ฝ่ายบุคคลทราบทันที หรือยื่นใบลาล่วงหน้า</li>
-                </ul>
-
-                <div class="leave-note">
-                  <strong>เฉพาะพนักงานหญิง</strong>
+              <!-- ลาป่วย -->
+              <article class="leave-item">
+                <div class="leave-icon">
+                  <img src="../assets/sick-leave.png"
+                       alt="ลาป่วย"
+                       onerror="this.style.visibility='hidden'">
                 </div>
-              </div>
 
-              <div class="leave-picture">
-                <img
-                  src="../assets/maternity-leave.png"
-                  alt=""
-                  onerror="this.style.display='none'"
-                >
-              </div>
+                <div class="leave-text">
+                  <h2>ลาป่วย</h2>
+                  <ul>
+                    <li>กรณีเจ็บป่วย ต้องแจ้งให้ผู้บังคับบัญชาทราบทันที</li>
+                    <li>ต้องยื่นใบลาและใบรับรองแพทย์ในวันแรกที่กลับมาปฏิบัติงาน</li>
+                    <li>กรณีลาป่วยติดต่อกันตั้งแต่ 3 วันขึ้นไป ต้องมีใบรับรองแพทย์ประกอบ</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- ลากิจ -->
+              <article class="leave-item">
+                <div class="leave-icon">
+                  <img src="../assets/personal-leave.png"
+                       alt="ลากิจ"
+                       onerror="this.style.visibility='hidden'">
+                </div>
+
+                <div class="leave-text">
+                  <h2>ลากิจ</h2>
+                  <ul>
+                    <li>ต้องแจ้งและยื่นใบลาล่วงหน้าอย่างน้อย 3 วัน</li>
+                    <li>ต้องได้รับการอนุมัติจากผู้บังคับบัญชาก่อนหยุดงาน</li>
+                    <li>หากลากิจเกิน 7 วันทำงาน อาจไม่ได้รับค่าจ้างตามระเบียบของบริษัท</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- ลาคลอด -->
+              <article class="leave-item">
+                <div class="leave-icon">
+                  <img src="../assets/maternity-leave.png"
+                       alt="ลาคลอด"
+                       onerror="this.style.visibility='hidden'">
+                </div>
+
+                <div class="leave-text">
+                  <h2>ลาคลอด</h2>
+                  <ul>
+                    <li>พนักงานหญิงสามารถลาคลอดได้ไม่เกิน 120 วัน</li>
+                    <li>ต้องแจ้งผู้บังคับบัญชาและฝ่ายทรัพยากรบุคคลให้ทราบ</li>
+                    <li>สิทธิการลานี้สำหรับพนักงานหญิงเท่านั้น</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- ลาระดมพล -->
+              <article class="leave-item">
+                <div class="leave-icon">
+                  <img src="../assets/military-leave.png"
+                       alt="ลาระดมพล"
+                       onerror="this.style.visibility='hidden'">
+                </div>
+
+                <div class="leave-text">
+                  <h2>ลาระดมพล</h2>
+                  <ul>
+                    <li>สามารถลาเพื่อเข้ารับราชการทหารได้ตามหมายเรียก</li>
+                    <li>ลาได้ไม่เกิน 60 วันต่อปี</li>
+                    <li>ต้องนำเอกสารหลักฐานมาแสดงภายใน 3 วันหลังกลับมาปฏิบัติงาน</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- ลาพักร้อน -->
+              <article class="leave-item">
+                <div class="leave-icon">
+                  <img src="../assets/annual-leave.png"
+                       alt="ลาพักร้อน"
+                       onerror="this.style.visibility='hidden'">
+                </div>
+
+                <div class="leave-text">
+                  <h2>ลาพักร้อน</h2>
+                  <ul>
+                    <li>พนักงานมีสิทธิ์ลาพักร้อนเมื่อผ่านการทดลองงานตามเงื่อนไขของบริษัท</li>
+                    <li>ต้องยื่นใบลาล่วงหน้าอย่างน้อย 7 วัน และได้รับอนุมัติก่อนหยุดงาน</li>
+                    <li>กรณีมีเหตุจำเป็น บริษัทอาจเรียกพนักงานกลับมาปฏิบัติงาน</li>
+                    <li>วันลาพักร้อนไม่สามารถสะสมข้ามปีปฏิทินได้</li>
+                    <li>การลาต้องเป็นไปตามเงื่อนไขและข้อกำหนดของบริษัท</li>
+                  </ul>
+                </div>
+              </article>
 
             </div>
+
+            <div class="leave-warning">
+              <span class="leave-red">หมายเหตุ:</span>
+              การใช้สิทธิ์วันลาทุกประเภท พนักงานควรปฏิบัติตามระเบียบของบริษัท
+              และแจ้งผู้บังคับบัญชาตามขั้นตอนที่กำหนด
+            </div>
+
           </section>
+        </main>
 
-          <!-- 04 ลาระดมพล -->
-          <section class="leave-section" style="animation-delay:.3s">
-
-            <div class="leave-heading">
-              <span class="leave-number">04</span>
-              <h2>ลาระดมพล</h2>
-            </div>
-
-            <div class="leave-feature image-left">
-
-              <div class="leave-info">
-                <ul>
-                  <li>ลาได้ตามหมายเรียก ไม่เกิน 60 วันต่อปี</li>
-                  <li>
-                    รายงานตัวพร้อมแสดงหลักฐานต่อบริษัทภายใน 3 วัน
-                    นับจากสิ้นสุดการฝึกทหาร
-                  </li>
-                </ul>
-              </div>
-
-              <div class="leave-picture">
-                <img
-                  src="../assets/military-leave.png"
-                  alt=""
-                  onerror="this.style.display='none'"
-                >
-              </div>
-
-            </div>
-          </section>
-
-          <!-- 05 ลาพักร้อน -->
-          <section class="leave-section" style="animation-delay:.4s">
-
-            <div class="leave-heading">
-              <span class="leave-number">05</span>
-              <h2>ลาพักร้อน</h2>
-            </div>
-
-            <div class="leave-feature">
-
-              <div class="leave-info">
-
-                <p class="leave-red">
-                  ใช้สิทธิได้หลังผ่านการทดลองงาน
-                </p>
-
-                <ul>
-                  <li>แจ้งล่วงหน้า 7 วัน และต้องได้รับการอนุมัติ</li>
-                  <li>
-                    กรณีเร่งด่วน อาจเรียกกลับมาช่วยงานได้
-                    โดยนับวันลาที่เหลือไปใช้ในครั้งต่อไป
-                  </li>
-                  <li>ไม่สามารถสะสมวันลาได้ และนับตามปีปฏิทิน</li>
-                  <li>
-                    ไม่อนุญาตให้หยุดช่วงเทศกาลต่าง ๆ
-                    เว้นแต่ผู้จัดการจะเป็นผู้จัดการให้
-                  </li>
-                </ul>
-
-              </div>
-
-              <div class="leave-picture">
-                <img
-                  src="../assets/annual-leave.png"
-                  alt=""
-                  onerror="this.style.display='none'"
-                >
-              </div>
-
-            </div>
-          </section>
-
-          <!-- FOOTER -->
-          <div class="menu-note">
-
-            <div class="note-icon">♥</div>
-
-            <div>
-              <strong>CP ALL</strong>
-              <p>เรียนรู้และเติบโตไปด้วยกันที่ CP ALL</p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </main>
-
+      </div>
     </div>
 
   </div>
 
-</div>
-
-<script src="../js/main.js"></script>
-
+  <script src="../js/main.js"></script>
 </body>
 </html>
 
