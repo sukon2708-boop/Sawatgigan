@@ -6,11 +6,17 @@
 
   <title>คู่มือพนักงานใหม่ | CP ALL</title>
 
+  <!-- CSS หลัก -->
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 </head>
 
 <body>
@@ -19,58 +25,117 @@
 
   <section class="landing">
 
-    <!-- Header -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
     <header class="landing-header">
 
-      <img
-        src="assets/logo.png"
-        class="landing-logo"
-        alt="CP ALL"
-      >
+      <!-- Logo -->
+      <a href="index.html" class="logo-link">
 
+        <img
+          src="assets/logo.png"
+          class="landing-logo"
+          alt="CP ALL"
+        >
+
+      </a>
+
+
+      <!-- Profile -->
       <div class="employee-profile">
-        <span class="profile-icon">●</span>
-        <span>พนักงานใหม่</span>
-        <span class="profile-arrow">⌄</span>
+
+        <span class="profile-icon">
+          ●
+        </span>
+
+        <span>
+          พนักงานใหม่
+        </span>
+
+        <span class="profile-arrow">
+          ⌄
+        </span>
+
       </div>
 
     </header>
 
 
-    <!-- Main Content -->
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
     <div class="landing-content">
 
-      <!-- ข้อความ -->
+
+      <!-- ===================================================
+           LEFT : WELCOME TEXT
+      ==================================================== -->
+
       <div class="welcome-text">
 
         <span class="kicker">
           WELCOME TO CP ALL
         </span>
 
+
         <h1>
+
           คู่มือพนักงาน
-          <span>สำหรับพนักงานเริ่มงานใหม่</span>
+
+          <span>
+            สำหรับพนักงานเริ่มงานใหม่
+          </span>
+
         </h1>
 
+
         <p>
+
           ยินดีต้อนรับเข้าสู่ครอบครัว CP ALL<br>
-          เรียนรู้ระเบียบการทำงานและสิทธิประโยชน์ต่าง ๆ ได้ที่นี่
+
+          เรียนรู้ระเบียบการทำงานและสิทธิประโยชน์ต่าง ๆ
+          ได้ที่นี่
+
         </p>
 
-        <a href="menu.html" class="btn red">
-          เริ่มต้นใช้งาน <span>›</span>
+
+        <!-- Start Button -->
+        <a
+          href="menu.html"
+          class="btn red"
+        >
+
+          เริ่มต้นใช้งาน
+
+          <span>
+            ›
+          </span>
+
         </a>
 
       </div>
 
 
-      <!-- ด้านขวา -->
+      <!-- ===================================================
+           RIGHT : QR + PIC1
+      ==================================================== -->
+
       <div class="landing-right">
 
-        <!-- QR Code -->
+
+        <!-- =================================================
+             QR CARD
+        ================================================== -->
+
         <div class="qr-card">
 
+
+          <!-- QR Text -->
           <div class="qr-content">
+
             <strong>
               สแกนเพื่อเข้าสู่คู่มือ
             </strong>
@@ -78,8 +143,11 @@
             <span>
               คู่มือระเบียบการทำงานและสวัสดิการ
             </span>
+
           </div>
 
+
+          <!-- QR Image -->
           <img
             src="assets/qr.png"
             alt="QR Code"
@@ -88,37 +156,66 @@
         </div>
 
 
-        <!-- รูปพนักงาน อยู่ล่าง QR -->
+        <!-- =================================================
+             PIC1 FRAME
+        ================================================== -->
+
         <div class="pic1-frame">
 
+
+          <!-- Main Character -->
           <img
             src="assets/pic1.png"
             alt="ภาพประกอบพนักงาน CP ALL"
             class="main-character"
           >
 
+
+          <!-- Text on Image -->
           <div class="pic1-text">
-            เติบโตไปด้วยกัน<br>
-            <span>ที่ CP ALL ♥</span>
+
+            เติบโตไปด้วยกัน
+
+            <br>
+
+            <span>
+              ที่ CP ALL ♥
+            </span>
+
           </div>
 
+
         </div>
+
 
       </div>
 
     </div>
 
 
-    <!-- Footer -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
     <footer class="landing-footer">
-      <span>CP ALL</span>
-      <span>Care for Your Future ♥</span>
+
+      <span>
+        CP ALL
+      </span>
+
+      <span>
+        Care for Your Future ♥
+      </span>
+
     </footer>
+
 
   </section>
 
 </main>
 
+
+<!-- JavaScript -->
 <script src="js/main.js"></script>
 
 </body>

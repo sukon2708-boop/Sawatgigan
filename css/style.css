@@ -179,15 +179,6 @@ img {
 
 /* Landing Illustration */
 
-.landing-illustration {
-  position: relative;
-  height: 480px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  background:
-    radial-gradient(ellipse at 50% 70%, #ffe0dd, transparent 65%);
-}
 
 .main-character {
   position: relative;
@@ -340,10 +331,7 @@ img {
     font-size: 13px;
   }
 
-  .landing-illustration {
-    height: 370px;
-    margin-top: 5px;
-  }
+
 
   .illustration-text {
     top: 10px;
@@ -1352,9 +1340,7 @@ img {
   display: block;
 }
 /* ให้ภาพ pic1 เต็มกรอบ */
-.landing-illustration {
-  overflow: hidden;
-}
+
 
 .landing-illustration .main-character {
   display: block;
@@ -1364,11 +1350,7 @@ object-fit: cover;
   object-position: center bottom;
 }
 
-/* ให้ภาพตัวละครเต็มกรอบสีแดง */
-.landing-illustration {
-  position: relative;
-  overflow: hidden;
-}
+
 
 .landing-illustration .main-character {
   position: absolute;
@@ -1381,18 +1363,361 @@ object-fit: cover;
   object-position: center bottom;
   display: block;
 }
-/* =========================
-   LANDING RIGHT
-========================= */
+/* =====================================================
+   LANDING RIGHT - QR + PIC1
+===================================================== */
 
 .landing-right {
-  width: 390px;
+  width: 100%;
+  max-width: 390px;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  align-items: stretch;
+
   gap: 0;
+
+  margin: 0 auto;
 }
 
+
+/* =====================================================
+   QR CARD
+===================================================== */
+
+.landing-right .qr-card {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 15px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  background: #fff0ef;
+
+  border: 1px solid #f7dedd;
+
+  /* ด้านบนโค้ง ด้านล่างตรง */
+  border-radius: 20px 20px 0 0;
+
+  box-shadow: none;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* QR ข้อความ */
+
+.landing-right .qr-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+
+.landing-right .qr-content strong {
+  color: var(--red);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+.landing-right .qr-content span {
+  color: #879099;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* QR รูป */
+
+.landing-right .qr-card img {
+  width: 75px;
+  height: 75px;
+
+  flex: 0 0 75px;
+
+  object-fit: contain;
+
+  background: #fff;
+
+  padding: 5px;
+
+  border-radius: 8px;
+}
+
+
+/* =====================================================
+   PIC1 FRAME
+===================================================== */
+
+.landing-right .pic1-frame {
+  width: 100%;
+
+  height: 430px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  /* สีพื้นหลังของรูป */
+  background:
+    linear-gradient(
+      180deg,
+      #fff1f1 0%,
+      #ffe5e5 100%
+    );
+
+  /*
+    สำคัญ:
+    ไม่มี margin-top
+    ไม่มีช่องว่างระหว่าง QR กับรูป
+  */
+
+  margin: 0;
+
+  /*
+    เฉพาะด้านล่างให้โค้ง
+    ด้านบนต้องตรงเพื่อให้ติดกับ QR
+  */
+  border-radius: 0 0 25px 25px;
+
+  border-left: 1px solid #f7dedd;
+  border-right: 1px solid #f7dedd;
+  border-bottom: 1px solid #f7dedd;
+
+  box-shadow:
+    0 15px 30px rgba(100, 40, 40, .10);
+
+  z-index: 1;
+}
+
+
+/* =====================================================
+   PIC1 IMAGE
+===================================================== */
+
+.landing-right .pic1-frame .main-character {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform: translateX(-50%);
+
+  display: block;
+
+  object-fit: contain;
+
+  object-position: center bottom;
+
+  max-width: none;
+
+  z-index: 1;
+}
+
+
+/* =====================================================
+   TEXT ON PIC1
+===================================================== */
+
+.landing-right .pic1-text {
+  position: absolute;
+
+  top: 18px;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  font-family: "Prompt", sans-serif;
+
+  color: #d71920;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  z-index: 3;
+
+  transform: rotate(-5deg);
+
+  pointer-events: none;
+}
+
+
+.landing-right .pic1-text span {
+  color: #333;
+
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 901px) {
+
+  .landing-content {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      390px;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 30px 45px 20px;
+  }
+
+}
+
+
+/* =====================================================
+   TABLET / MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .landing-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 25px;
+
+    padding: 20px;
+  }
+
+  .welcome-text {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .landing-right {
+    width: 100%;
+    max-width: 390px;
+
+    margin: 0 auto;
+  }
+
+  .landing-right .qr-card {
+    margin: 0;
+
+    padding: 13px 15px;
+  }
+
+  .landing-right .qr-card img {
+    width: 65px;
+    height: 65px;
+
+    flex-basis: 65px;
+  }
+
+  .landing-right .pic1-frame {
+    height: 390px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .landing-content {
+    gap: 20px;
+
+    padding: 15px 20px 10px;
+  }
+
+  .landing-right {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .landing-right .qr-card {
+    padding: 12px;
+  }
+
+  .landing-right .qr-content strong {
+    font-size: 12px;
+  }
+
+  .landing-right .qr-content span {
+    font-size: 10px;
+  }
+
+  .landing-right .qr-card img {
+    width: 65px;
+    height: 65px;
+
+    flex-basis: 65px;
+  }
+
+  .landing-right .pic1-frame {
+    height: 350px;
+
+    border-radius: 0 0 20px 20px;
+  }
+
+  .landing-right .pic1-text {
+    top: 12px;
+
+    font-size: 14px;
+  }
+
+  .landing-right .pic1-text span {
+    font-size: 12px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .landing-content {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .landing-right .pic1-frame {
+    height: 310px;
+  }
+
+}
 
 /* =========================
    QR CARD
