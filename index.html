@@ -6,201 +6,898 @@
 
   <title>คู่มือพนักงานใหม่ | CP ALL</title>
 
-  <!-- CSS หลัก -->
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Google Font -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
     href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
+
+  <style>
+    /* =====================================================
+       INDEX / LANDING PAGE ONLY
+       CSS ชุดนี้ใช้เฉพาะหน้า index.html
+       ไม่ยุ่งกับหน้าอื่น
+    ===================================================== */
+
+    .landing-page {
+      --red: #e92332;
+      --red-dark: #c91624;
+      --pink: #ffe9e7;
+      --pink-light: #fff7f6;
+      --ink: #253746;
+      --muted: #7d8991;
+      --white: #ffffff;
+
+      min-height: 100vh;
+      margin: 0;
+      padding: 25px;
+      box-sizing: border-box;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-family: "Prompt", sans-serif;
+      color: var(--ink);
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          #ffe5e3,
+          transparent 35%
+        ),
+        #f9eeee;
+    }
+
+    .landing-page *,
+    .landing-page *::before,
+    .landing-page *::after {
+      box-sizing: border-box;
+    }
+
+    .landing-page a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .landing-page img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* =====================================================
+       MAIN CARD
+    ===================================================== */
+
+    .landing-page .landing {
+      width: min(100%, 1150px);
+      min-height: 720px;
+
+      background: #fffdfc;
+      border-radius: 30px;
+      overflow: hidden;
+
+      position: relative;
+
+      box-shadow:
+        0 12px 40px rgba(100, 40, 40, .10);
+    }
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .landing-page .landing-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 25px 40px;
+
+      position: relative;
+      z-index: 5;
+    }
+
+    .landing-page .logo-link {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+
+      text-decoration: none;
+    }
+
+    .landing-page .landing-logo {
+      width: 110px;
+      height: 65px;
+
+      object-fit: contain;
+    }
+
+    .landing-page .employee-profile {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      font-size: 12px;
+      font-weight: 500;
+      color: #354452;
+    }
+
+    .landing-page .profile-icon {
+      width: 28px;
+      height: 28px;
+
+      border-radius: 50%;
+
+      background: #ffe2e1;
+      color: var(--red);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 15px;
+    }
+
+    .landing-page .profile-arrow {
+      color: #777;
+      font-size: 16px;
+    }
+
+    /* =====================================================
+       CONTENT
+    ===================================================== */
+
+    .landing-page .landing-content {
+      width: 100%;
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 40px 50px;
+
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1fr)
+        390px;
+
+      align-items: center;
+
+      gap: 70px;
+    }
+
+    /* =====================================================
+       LEFT TEXT
+    ===================================================== */
+
+    .landing-page .welcome-text {
+      position: relative;
+      z-index: 3;
+    }
+
+    .landing-page .kicker {
+      display: inline-block;
+
+      color: var(--red);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: 1px;
+
+      margin-bottom: 15px;
+    }
+
+    .landing-page .welcome-text h1 {
+      margin: 0;
+
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700;
+
+      line-height: 1.35;
+
+      color: var(--ink);
+    }
+
+    .landing-page .welcome-text h1 span {
+      display: block;
+
+      margin-top: 3px;
+
+      font-size: clamp(18px, 2.2vw, 25px);
+      color: var(--red);
+
+      font-weight: 500;
+    }
+
+    .landing-page .welcome-text p {
+      margin: 20px 0 0;
+
+      color: #687780;
+
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* =====================================================
+       START BUTTON
+    ===================================================== */
+
+    .landing-page .start-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 15px;
+
+      margin-top: 25px;
+
+      padding: 13px 27px;
+
+      min-width: 190px;
+
+      border-radius: 30px;
+
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e92332,
+          #f34e58
+        );
+
+      box-shadow:
+        0 7px 18px rgba(230, 35, 50, .20);
+
+      font-size: 15px;
+      font-weight: 600;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .landing-page .start-button span {
+      font-size: 25px;
+      line-height: 15px;
+    }
+
+    .landing-page .start-button:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 10px 22px rgba(230, 35, 50, .25);
+    }
+
+    .landing-page .start-button:active {
+      transform: scale(.97);
+    }
+
+    /* =====================================================
+       RIGHT SIDE
+       QR + PIC1
+    ===================================================== */
+
+    .landing-page .landing-right {
+      width: 100%;
+      max-width: 390px;
+
+      margin: 0 auto;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =====================================================
+       QR
+    ===================================================== */
+
+    .landing-page .qr-card {
+      width: 100%;
+
+      padding: 18px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      background: #fff0ef;
+
+      border: 1px solid #f7dedd;
+      border-bottom: 0;
+
+      border-radius: 20px 20px 0 0;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .landing-page .qr-content {
+      display: flex;
+      flex-direction: column;
+
+      gap: 5px;
+
+      min-width: 0;
+    }
+
+    .landing-page .qr-content strong {
+      color: #d71920;
+
+      font-size: 17px;
+      font-weight: 700;
+
+      line-height: 1.5;
+    }
+
+    .landing-page .qr-content span {
+      color: #7d8991;
+
+      font-size: 11px;
+
+      line-height: 1.6;
+    }
+
+    .landing-page .qr-card img {
+      width: 80px;
+      height: 80px;
+
+      flex: 0 0 80px;
+
+      object-fit: contain;
+
+      padding: 5px;
+
+      background: #fff;
+
+      border-radius: 10px;
+    }
+
+    /* =====================================================
+       PIC1
+    ===================================================== */
+
+    .landing-page .pic1-frame {
+      width: 100%;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background: #fcebed;
+
+      border-left: 1px solid #f7dedd;
+      border-right: 1px solid #f7dedd;
+      border-bottom: 1px solid #f7dedd;
+
+      border-radius: 0 0 28px 28px;
+
+      line-height: 0;
+
+      box-shadow:
+        0 18px 35px rgba(0, 0, 0, .10);
+    }
+
+    .landing-page .pic1-frame .main-character {
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      max-width: none;
+
+      margin: 0;
+      padding: 0;
+
+      object-fit: contain;
+      object-position: center bottom;
+    }
+
+    /* =====================================================
+       OPTIONAL TEXT ON IMAGE
+    ===================================================== */
+
+    .landing-page .pic1-text {
+      position: absolute;
+
+      top: 22px;
+      left: 0;
+      right: 0;
+
+      text-align: center;
+
+      font-size: 17px;
+      font-weight: 600;
+
+      line-height: 1.5;
+
+      color: #d71920;
+
+      z-index: 2;
+
+      pointer-events: none;
+    }
+
+    .landing-page .pic1-text span {
+      display: block;
+
+      font-size: 15px;
+      color: #333;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .landing-page .landing-footer {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 15px 40px;
+
+      background: #e92332;
+
+      color: #fff;
+
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* =====================================================
+       DECORATION
+    ===================================================== */
+
+    .landing-page .decor {
+      position: absolute;
+
+      color: #f5a5a5;
+
+      font-size: 35px;
+
+      z-index: 1;
+
+      pointer-events: none;
+    }
+
+    .landing-page .decor-one {
+      left: 5%;
+      top: 25%;
+    }
+
+    .landing-page .decor-two {
+      right: 5%;
+      top: 40%;
+    }
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .landing-page {
+        padding: 15px;
+
+        align-items: flex-start;
+      }
+
+      .landing-page .landing {
+        width: 100%;
+        min-height: calc(100vh - 30px);
+
+        border-radius: 24px;
+      }
+
+      .landing-page .landing-header {
+        padding: 18px 25px;
+      }
+
+      .landing-page .landing-logo {
+        width: 90px;
+        height: 55px;
+      }
+
+      .landing-page .landing-content {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 30px;
+
+        padding: 25px 25px 30px;
+      }
+
+      .landing-page .welcome-text {
+        width: 100%;
+
+        text-align: center;
+      }
+
+      .landing-page .landing-right {
+        width: 100%;
+        max-width: 390px;
+      }
+
+      .landing-page .landing-footer {
+        padding: 14px 25px;
+      }
+    }
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 700px) {
+
+      .landing-page {
+        padding: 10px;
+
+        align-items: flex-start;
+      }
+
+      .landing-page .landing {
+        min-height: calc(100vh - 20px);
+
+        border-radius: 20px;
+      }
+
+      .landing-page .landing-header {
+        padding: 14px 18px;
+      }
+
+      .landing-page .landing-logo {
+        width: 75px;
+        height: 48px;
+      }
+
+      .landing-page .employee-profile {
+        font-size: 10px;
+        gap: 6px;
+      }
+
+      .landing-page .profile-icon {
+        width: 25px;
+        height: 25px;
+
+        font-size: 13px;
+      }
+
+      .landing-page .landing-content {
+        gap: 25px;
+
+        padding: 15px 15px 25px;
+      }
+
+      .landing-page .kicker {
+        font-size: 10px;
+        margin-bottom: 9px;
+      }
+
+      .landing-page .welcome-text h1 {
+        font-size: 29px;
+
+        line-height: 1.35;
+      }
+
+      .landing-page .welcome-text h1 span {
+        font-size: 18px;
+      }
+
+      .landing-page .welcome-text p {
+        margin-top: 12px;
+
+        font-size: 12px;
+
+        line-height: 1.8;
+      }
+
+      .landing-page .start-button {
+        margin-top: 17px;
+
+        min-width: 190px;
+
+        padding: 12px 23px;
+
+        font-size: 14px;
+      }
+
+      .landing-page .start-button span {
+        font-size: 23px;
+      }
+
+      .landing-page .landing-right {
+        max-width: 390px;
+      }
+
+      .landing-page .qr-card {
+        padding: 12px;
+
+        border-radius: 17px 17px 0 0;
+      }
+
+      .landing-page .qr-content strong {
+        font-size: 14px;
+      }
+
+      .landing-page .qr-content span {
+        font-size: 10px;
+      }
+
+      .landing-page .qr-card img {
+        width: 68px;
+        height: 68px;
+
+        flex-basis: 68px;
+      }
+
+      .landing-page .pic1-frame {
+        border-radius: 0 0 20px 20px;
+      }
+
+      .landing-page .pic1-text {
+        top: 14px;
+
+        font-size: 14px;
+      }
+
+      .landing-page .pic1-text span {
+        font-size: 12px;
+      }
+
+      .landing-page .landing-footer {
+        padding: 13px 18px;
+
+        font-size: 11px;
+      }
+    }
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+    @media (max-width: 480px) {
+
+      .landing-page .landing-header {
+        padding: 12px 15px;
+      }
+
+      .landing-page .landing-content {
+        padding: 15px 12px 20px;
+      }
+
+      .landing-page .welcome-text h1 {
+        font-size: 27px;
+      }
+
+      .landing-page .welcome-text h1 span {
+        font-size: 17px;
+      }
+
+      .landing-page .welcome-text p {
+        font-size: 11px;
+      }
+
+      .landing-page .start-button {
+        min-width: 180px;
+
+        padding: 11px 20px;
+
+        font-size: 13px;
+      }
+
+      .landing-page .qr-card {
+        padding: 10px;
+      }
+
+      .landing-page .qr-content strong {
+        font-size: 13px;
+      }
+
+      .landing-page .qr-card img {
+        width: 62px;
+        height: 62px;
+
+        flex-basis: 62px;
+      }
+
+      .landing-page .landing-footer {
+        padding: 12px 15px;
+
+        font-size: 10px;
+      }
+    }
+
+    /* =====================================================
+       VERY SMALL SCREEN
+    ===================================================== */
+
+    @media (max-width: 360px) {
+
+      .landing-page .welcome-text h1 {
+        font-size: 24px;
+      }
+
+      .landing-page .welcome-text h1 span {
+        font-size: 15px;
+      }
+
+      .landing-page .welcome-text p {
+        font-size: 10px;
+      }
+
+      .landing-page .qr-content strong {
+        font-size: 12px;
+      }
+
+      .landing-page .qr-content span {
+        font-size: 9px;
+      }
+
+      .landing-page .qr-card img {
+        width: 58px;
+        height: 58px;
+
+        flex-basis: 58px;
+      }
+    }
+
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .landing-page .start-button {
+        transition: none;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<main class="page">
+  <!-- =====================================================
+       LANDING PAGE
+       ทุกอย่างอยู่ภายใต้ .landing-page
+       ไม่กระทบหน้าอื่น
+  ====================================================== -->
 
-  <section class="landing">
+  <main class="landing-page">
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+    <section class="landing">
 
-    <header class="landing-header">
+      <!-- HEADER -->
+      <header class="landing-header">
 
-      <!-- Logo -->
-      <a href="index.html" class="logo-link">
+        <a href="index.html" class="logo-link">
+          <img
+            src="images/logo.png"
+            alt="CP ALL"
+            class="landing-logo"
+          >
+        </a>
 
-        <img
-          src="assets/logo.png"
-          class="landing-logo"
-          alt="CP ALL"
-        >
+        <div class="employee-profile">
 
-      </a>
-
-
-      <!-- Profile -->
-      <div class="employee-profile">
-
-        <span class="profile-icon">
-          ●
-        </span>
-
-        <span>
-          พนักงานใหม่
-        </span>
-
-        <span class="profile-arrow">
-          ⌄
-        </span>
-
-      </div>
-
-    </header>
-
-
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
-
-    <div class="landing-content">
-
-
-      <!-- ===================================================
-           LEFT : WELCOME TEXT
-      ==================================================== -->
-
-      <div class="welcome-text">
-
-        <span class="kicker">
-          WELCOME TO CP ALL
-        </span>
-
-
-        <h1>
-
-          คู่มือพนักงาน
+          <div class="profile-icon">
+            👤
+          </div>
 
           <span>
-            สำหรับพนักงานเริ่มงานใหม่
+            พนักงานใหม่
           </span>
 
-        </h1>
-
-
-        <p>
-
-          ยินดีต้อนรับเข้าสู่ครอบครัว CP ALL<br>
-
-          เรียนรู้ระเบียบการทำงานและสิทธิประโยชน์ต่าง ๆ
-          ได้ที่นี่
-
-        </p>
-
-
-        <!-- Start Button -->
-        <a
-          href="menu.html"
-          class="btn red"
-        >
-
-          เริ่มต้นใช้งาน
-
-          <span>
+          <span class="profile-arrow">
             ›
           </span>
 
-        </a>
+        </div>
 
-      </div>
-
-
-      <!-- ===================================================
-           RIGHT : QR + PIC1
-      ==================================================== -->
-
-      <div class="landing-right">
+      </header>
 
 
-        <!-- =================================================
-             QR CARD
-        ================================================== -->
+      <!-- CONTENT -->
+      <div class="landing-content">
 
-        <div class="qr-card">
+        <!-- LEFT -->
+        <div class="welcome-text">
 
+          <div class="kicker">
+            WELCOME TO CP ALL
+          </div>
 
-          <!-- QR Text -->
-          <div class="qr-content">
-
-            <strong>
-              สแกนเพื่อเข้าสู่คู่มือ
-            </strong>
-
+          <h1>
+            คู่มือพนักงานใหม่
             <span>
-              คู่มือระเบียบการทำงานและสวัสดิการ
+              สำหรับพนักงานเริ่มงานใหม่
             </span>
+          </h1>
+
+          <p>
+            ยินดีต้อนรับเข้าสู่ครอบครัว CP ALL<br>
+            เรียนรู้ระเบียบการทำงานและสิทธิประโยชน์ต่าง ๆ ได้ที่นี่
+          </p>
+
+          <!-- เปลี่ยน menu.html เป็นชื่อหน้าเมนูของคุณได้ -->
+          <a
+            href="menu.html"
+            class="start-button"
+          >
+            เริ่มต้นใช้งาน
+            <span>›</span>
+          </a>
+
+        </div>
+
+
+        <!-- RIGHT -->
+        <div class="landing-right">
+
+          <!-- QR -->
+          <div class="qr-card">
+
+            <div class="qr-content">
+
+              <strong>
+                สแกนเพื่อเข้าสู่คู่มือ
+              </strong>
+
+              <span>
+                คู่มือระเบียบการทำงานและสวัสดิการ
+              </span>
+
+            </div>
+
+            <img
+              src="images/qr.png"
+              alt="QR Code"
+            >
 
           </div>
 
 
-          <!-- QR Image -->
-          <img
-            src="assets/qr.png"
-            alt="QR Code"
-          >
+          <!-- PIC1 -->
+          <div class="pic1-frame">
+
+            <img
+              src="images/pic1.png"
+              alt="CP ALL"
+              class="main-character"
+            >
+
+          </div>
 
         </div>
-
-
-        <!-- =================================================
-             PIC1 FRAME
-        ================================================== -->
-
-        <div class="pic1-frame">
-
-
-          <!-- Main Character -->
-          <img
-            src="assets/pic1.png"
-            alt="ภาพประกอบพนักงาน CP ALL"
-            class="main-character"
-          >
-        </div>
-
 
       </div>
 
-    </div>
 
+      <!-- FOOTER -->
+      <footer class="landing-footer">
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
+        <span>
+          CP ALL
+        </span>
 
-    <footer class="landing-footer">
+        <span>
+          Care for Your Future 
+        </span>
 
-      <span>
-        CP ALL
-      </span>
+      </footer>
 
-      <span>
-        Care for Your Future ♥
-      </span>
+    </section>
 
-    </footer>
-
-
-  </section>
-
-</main>
-
-
-<!-- JavaScript -->
-<script src="js/main.js"></script>
+  </main>
 
 </body>
 </html>
