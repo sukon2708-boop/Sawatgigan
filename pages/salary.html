@@ -1,5 +1,5 @@
-```html
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -8,18 +8,229 @@
   <title>การจ่ายค่าจ้าง | CP ALL</title>
 
   <link rel="stylesheet" href="../css/style.css">
-
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    /* MAIN */
     .salary-main {
       min-width: 0;
-      width: 100%;
+    }
+
+    /* BANNER */
+    .salary-banner {
+      min-height: 145px;
+      margin-bottom: 24px;
+      padding: 26px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      overflow: hidden;
+      border: 1px solid #f8dddd;
+      border-radius: 20px;
+      background: linear-gradient(120deg, #fff1f1, #ffe5e5);
+    }
+
+    .salary-banner small {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #ed3945;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .salary-banner h1 {
+      margin: 0 0 7px;
+      color: #263746;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .salary-banner p {
+      margin: 0;
+      color: #7d8993;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .salary-banner-icon {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: #fff;
+      color: #f23845;
+      font-size: 38px;
+      box-shadow: 0 5px 15px rgba(190, 70, 70, .07);
+    }
+
+    /* SECTION */
+    .salary-section {
+      margin-bottom: 18px;
+      padding: 20px;
+      border: 1px solid #f1e5e5;
+      border-radius: 17px;
+      background: #fff;
+      box-shadow: 0 4px 13px rgba(30, 40, 50, .035);
+    }
+
+    .salary-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .salary-number {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff0f0;
+      color: #ed3945;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .salary-heading h2 {
+      margin: 0;
+      color: #263746;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .salary-desc {
+      margin: 0 0 15px;
+      padding-left: 12px;
+      border-left: 3px solid #ff9da3;
+      color: #82909b;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* STEP CARDS */
+    .salary-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .salary-step {
+      min-width: 0;
+      padding: 20px 14px;
+      text-align: center;
+      border: 1px solid #f1e5e5;
+      border-radius: 14px;
+      background: #fffafa;
+    }
+
+    .salary-step .number {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 12px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff0f0;
+      color: #ed3945;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .salary-step h3 {
+      margin: 0 0 10px;
+      color: #263746;
+      font-size: 15px;
+      line-height: 1.6;
+      font-weight: 700;
+    }
+
+    .salary-step p {
+      margin: 0;
+      color: #667580;
+      font-size: 12px;
+      line-height: 1.8;
     }
 
     .salary-highlight {
       color: #d71920;
       font-weight: 700;
+    }
+
+    /* IMAGE */
+    .salary-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(210px, .85fr);
+      align-items: stretch;
+      gap: 14px;
+      margin-top: 15px;
+    }
+
+    .salary-picture {
+      min-width: 0;
+      min-height: 180px;
+      padding: 12px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid #f1e5e5;
+      border-radius: 14px;
+      background: #fffafa;
+    }
+
+    .salary-picture img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+    }
+
+    .salary-picture.bottom {
+      margin-top: 14px;
+    }
+
+    .salary-picture.bottom img {
+      height: 220px;
+    }
+
+    /* EXAMPLE */
+    .salary-example {
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: 13px;
+      background: #fff3f3;
+    }
+
+    .salary-example strong {
+      color: #e52e3b;
+      font-size: 14px;
+    }
+
+    .salary-example p {
+      margin: 7px 0 0;
+      color: #667580;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* NOTE */
+    .salary-note {
+      margin-top: 14px;
+      padding: 13px 15px;
+      border-radius: 12px;
+      background: #fff3f3;
+      color: #71808b;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .salary-note strong {
+      color: #e52e3b;
     }
 
     .salary-contact {
@@ -28,168 +239,66 @@
       white-space: nowrap;
     }
 
-    .salary-step p {
-      line-height: 1.7;
+    /* FOOTER */
+    .salary-footer {
+      margin-top: 22px;
     }
 
-    .salary-note p {
-      margin: 8px 0 0;
-      line-height: 1.7;
-    }
-
-    /* ส่วนบน: การ์ดซ้าย รูปขวา */
-    .salary-top {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      align-items: center;
-      width: 100%;
-      min-width: 0;
-    }
-
-    .salary-flow {
-      grid-column: 1;
-      grid-row: 1;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .salary-step {
-      min-width: 0;
-      text-align: center;
-      padding: 20px 12px;
-      background: #fff;
-      border-radius: 26px;
-      box-shadow: 0 8px 20px rgba(170,20,25,.12);
-    }
-
-    .salary-step .number {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #d71920;
-      color: #fff;
-      margin: 0 auto 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .salary-step h3 {
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 0 0 12px;
-    }
-
-    .salary-step p {
-      font-size: 13px;
-      margin: 0;
-      line-height: 1.7;
-    }
-
-    .salary-top-image {
-      grid-column: 2;
-      grid-row: 1;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      box-sizing: border-box;
-      min-width: 0;
-    }
-
-    .salary-top-image img {
-      display: block;
-      width: 100%;
-      max-width: 420px;
-      max-height: 260px;
-      object-fit: contain;
-    }
-
-    /* รูปด้านล่าง */
-    .salary-bottom-image {
-      width: 100%;
-      height: 230px;
-      min-height: 230px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .salary-bottom-image img {
-      width: 100%;
-      height: 100%;
-      max-width: 100%;
-      max-height: 100%;
-      display: block;
-      object-fit: contain;
-    }
-
-    .salary-example {
-      margin-top: 12px;
-    }
-
-    /* หมายเหตุ */
-    .salary-note {
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    /* Tablet */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .salary-top {
+      .salary-feature {
         grid-template-columns: 1fr;
       }
-
-      .salary-flow {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      .salary-top-image {
-        grid-column: 1;
-        grid-row: 2;
-      }
-
-      .salary-top-image img {
-        max-height: 220px;
-      }
     }
 
-    /* Mobile */
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
+      .salary-banner {
+        min-height: 120px;
+        padding: 18px;
+      }
+
+      .salary-banner h1 {
+        font-size: 19px;
+      }
+
+      .salary-banner p {
+        font-size: 11px;
+      }
+
+      .salary-banner-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 29px;
+      }
+
+      .salary-section {
+        padding: 14px;
+      }
+
       .salary-flow {
         grid-template-columns: 1fr;
       }
 
       .salary-step {
-        padding: 20px;
+        padding: 18px;
       }
 
-      .salary-step h3 {
-        font-size: 16px;
+      .salary-picture {
+        min-height: 145px;
       }
 
-      .salary-step p {
-        font-size: 13px;
+      .salary-picture img {
+        height: 145px;
       }
 
-      .salary-top-image img {
-        max-height: 180px;
+      .salary-picture.bottom img {
+        height: 170px;
       }
+    }
 
-      .salary-bottom-image {
-        height: 190px;
-        min-height: 190px;
+    @media (max-width: 420px) {
+      .salary-heading h2 {
+        font-size: 15px;
       }
     }
   </style>
@@ -198,7 +307,6 @@
 <body>
 
 <div class="page menu-page">
-
   <div class="menu-app">
 
     <!-- HEADER -->
@@ -225,120 +333,143 @@
       <aside class="menu-sidebar">
 
         <a href="../menu.html" class="sidebar-item">
-          <span>⌂</span>
-          หน้าหลัก
+          <span>⌂</span> หน้าหลัก
         </a>
 
         <a href="welfare.html" class="sidebar-item">
-          <span>♡</span>
-          สวัสดิการ
+          <span>♡</span> สวัสดิการ
         </a>
 
         <a href="dress.html" class="sidebar-item">
-          <span>♧</span>
-          การแต่งกาย
+          <span>♧</span> การแต่งกาย
         </a>
 
         <a href="salary.html" class="sidebar-item active">
-          <span>◷</span>
-          การจ่ายค่าจ้าง
+          <span>◷</span> การจ่ายค่าจ้าง
         </a>
 
         <a href="working-time.html" class="sidebar-item">
-          <span>◴</span>
-          วันเวลาทำงาน
+          <span>◴</span> วันเวลาทำงาน
         </a>
 
         <a href="leave.html" class="sidebar-item">
-          <span>♧</span>
-          วันลา
+          <span>♧</span> วันลา
         </a>
 
       </aside>
 
-      <!-- MAIN CONTENT -->
+      <!-- MAIN -->
       <main class="menu-main salary-main">
 
-        <!-- TITLE -->
-        <div class="content-title fade-up">
-          <h1>การจ่ายค่าจ้าง</h1>
-          <p>รายละเอียดรอบคำนวณและกำหนดการจ่ายเงินเดือน</p>
-        </div>
+        <!-- BANNER -->
+        <section class="salary-banner fade-up">
 
-        <div class="content-layout">
+          <div>
+            <small>EMPLOYEE GUIDE</small>
 
-          <!-- การ์ดและรูปภาพด้านบน -->
-          <div class="salary-top">
+            <h1>การจ่ายค่าจ้าง</h1>
 
-            <div class="salary-flow">
+            <p>
+              รายละเอียดรอบคำนวณและกำหนดการจ่ายเงินเดือน
+            </p>
+          </div>
 
-              <!-- STEP 1 -->
-              <div class="salary-step fade-up">
+          <div class="salary-banner-icon">฿</div>
 
-                <div class="number">1</div>
+        </section>
 
-                <h3>อัตราค่าจ้าง</h3>
+        <!-- SECTION 1 -->
+        <section class="salary-section fade-up">
 
-                <p>
-                  การจ่ายค่าจ้างเป็นไปตามวุฒิการศึกษา
-                </p>
+          <div class="salary-heading">
+            <span class="salary-number">01</span>
+            <h2>รายละเอียดการจ่ายค่าจ้าง</h2>
+          </div>
 
-              </div>
+          <p class="salary-desc">
+            ข้อมูลอัตราค่าจ้าง รอบคำนวณรายได้ และกำหนดการจ่ายเงินเดือน
+          </p>
 
-              <!-- STEP 2 -->
-              <div class="salary-step fade-up delay-1">
+          <div class="salary-flow">
 
-                <div class="number">2</div>
+            <article class="salary-step">
+              <div class="number">1</div>
 
-                <h3>วันที่คำนวณเงินเดือนและรายได้</h3>
+              <h3>อัตราค่าจ้าง</h3>
 
-                <p>
-                  ตั้งแต่วันที่
-                  <span class="salary-highlight">
-                    21 ของเดือนที่ผ่านมา
-                  </span>
-                  ถึงวันที่
-                  <span class="salary-highlight">
-                    20 ของเดือนปัจจุบัน
-                  </span>
-                </p>
+              <p>
+                การจ่ายค่าจ้างเป็นไปตามวุฒิการศึกษา
+              </p>
+            </article>
 
-              </div>
+            <article class="salary-step">
+              <div class="number">2</div>
 
-              <!-- STEP 3 -->
-              <div class="salary-step fade-up delay-2">
+              <h3>วันที่คำนวณเงินเดือนและรายได้</h3>
 
-                <div class="number">3</div>
+              <p>
+                ตั้งแต่วันที่
+                <span class="salary-highlight">
+                  21 ของเดือนที่ผ่านมา
+                </span>
+                ถึงวันที่
+                <span class="salary-highlight">
+                  20 ของเดือนปัจจุบัน
+                </span>
+              </p>
+            </article>
 
-                <h3>วันจ่ายเงินเดือน</h3>
+            <article class="salary-step">
+              <div class="number">3</div>
 
-                <p>
-                  จ่ายทุกวันที่
-                  <span class="salary-highlight">30</span>
-                  ของเดือน
-                </p>
+              <h3>วันจ่ายเงินเดือน</h3>
 
-              </div>
+              <p>
+                จ่ายทุกวันที่
+                <span class="salary-highlight">30</span>
+                ของเดือน
+              </p>
+            </article>
 
-            </div>
+          </div>
 
-            <!-- รูป salary -->
-            <div class="salary-top-image fade-up">
+          <div class="salary-feature">
 
+            <div class="salary-picture">
               <img
                 src="../assets/salary.png"
                 alt=""
                 onerror="this.style.display='none'"
               >
+            </div>
 
+            <div class="salary-picture">
+              <img
+                src="../assets/boos.png"
+                alt=""
+                onerror="this.style.display='none'"
+              >
             </div>
 
           </div>
 
-          <!-- กรณีวันจ่ายตรงกับวันหยุด -->
-          <div class="card full fade-up delay-3">
+        </section>
 
+        <!-- SECTION 2 -->
+        <section class="salary-section fade-up">
+
+          <div class="salary-heading">
+            <span class="salary-number">02</span>
             <h2>กรณีวันจ่ายตรงกับวันหยุด</h2>
+          </div>
+
+          <p class="salary-desc">
+            กำหนดการจ่ายเงินเดือนเมื่อวันที่จ่ายตรงกับวันหยุด
+          </p>
+
+          <div class="salary-example">
+
+            <strong>รายละเอียด</strong>
 
             <p>
               หากวันจ่ายเงินเดือนตรงกับวันเสาร์ วันอาทิตย์
@@ -346,47 +477,36 @@
               เพื่อให้ตรงกับวันทำการ
             </p>
 
-            <div class="salary-example">
-
-              <strong>ตัวอย่าง</strong>
-
-              <p>
-                หากวันที่ 30 ตรงกับวันเสาร์
-                เงินเดือนจะเลื่อนมาจ่ายในวันศุกร์ที่
-                <span class="salary-highlight">29</span>
-              </p>
-
-            </div>
-
           </div>
 
-          <!-- รูปภาพด้านล่าง -->
-          <div class="placeholder full fade-up delay-4 salary-bottom-image">
+          <div class="salary-example">
 
-            <img
-              src="../assets/boos.png"
-              alt=""
-              onerror="this.style.display='none'"
-            >
-
-          </div>
-
-          <!-- หมายเหตุ -->
-          <div class="note full fade-up delay-4 salary-note">
-
-            <strong>หมายเหตุ</strong>
+            <strong>ตัวอย่าง</strong>
 
             <p>
-              กรณีมีข้อสงสัย ติดต่อฝ่ายบุคคลเท่านั้น
-              <span class="salary-contact">091-004-8991</span>
+              หากวันที่ 30 ตรงกับวันเสาร์
+              เงินเดือนจะเลื่อนมาจ่ายในวันศุกร์ที่
+              <span class="salary-highlight">29</span>
             </p>
 
           </div>
 
+        </section>
+
+        <!-- NOTE -->
+        <div class="salary-note fade-up">
+
+          <strong>หมายเหตุ</strong>
+
+          <p>
+            กรณีมีข้อสงสัย ติดต่อฝ่ายบุคคลเท่านั้น
+            <span class="salary-contact">091-004-8991</span>
+          </p>
+
         </div>
 
         <!-- FOOTER -->
-        <div class="menu-note">
+        <div class="menu-note salary-footer">
 
           <div class="note-icon">♥</div>
 
@@ -400,13 +520,10 @@
       </main>
 
     </div>
-
   </div>
-
 </div>
 
 <script src="../js/main.js"></script>
 
 </body>
 </html>
-```
